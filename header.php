@@ -8,11 +8,11 @@ function isLoggedIn(): ?string {
     }
 }
 
-function send_header($page) {
+function send_header(?string $page) {
 ?>
     <html>
     <head>
-        <title>Virtual Pets<?php if($page != 'index') { echo '-' $page; } ?></title>
+        <title>Virtual Pets<?php if($page != 'index') { echo "- $page"; } ?></title>
         <!-- jQuery -->
         <script src="jquery-3.6.1.min.js"></script>
 	
@@ -29,7 +29,7 @@ function send_header($page) {
 <?php
     $user = isLoggedIn;
     if(!$user) {
-        
+
     }
 
 }
