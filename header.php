@@ -22,7 +22,7 @@ function user_nav($user) {
     <li><a href = "">Profile</a>
     <li><a href = "">My Pets</a>
     <li><a href = "">Shops</a>
-    <li><a href = "">Logout</a>
+    <li><a href = "loginpage.php">Logout</a>
     USERLINKS;
 }
 
@@ -45,16 +45,6 @@ $user = isLoggedIn();
         <script src = "js/app.js"></script>
     </head>
     <body>
-        <div class = "login-form" id = "login">
-            <form onsubmit="return(loginpop())">
-				Username: <input type="text" id="user"><br>
-				Password: <input type="text" id="pass"><br>
-				<input type="submit" class="button" value="Login">
-                <input type="button" class="button" value="Sign-up">
-                <input type="button" class="button" value="Cancel">
-			</form>
-            <div id="message"></div>
-        </div>
         <div class = "grid-container">
         <div class = "grid-x">
            <div id = "cell small-12 medium-12 large-12">
@@ -76,26 +66,3 @@ $user = isLoggedIn();
 ?>
                 </ul>
             </div>
-    <script>
-        function loginpop() {
-
-        }
-        
-        function login() {
-            user = $("#user").val();
-			pass = $("#pass").val();
-            err = "";
-            
-            if( username != "" && password != "") {
-			    $.post("./login.php",{"user": "user", "pass": pass },function(data) {
-                  	if(response == 1) {
-                        header("Location: index.php");
-                    } else {
-                        err = "Invalid login";
-                        $("#message").html(data);
-                    }
-                    });
-                return(false);
-            }
-        }
-    </script>
