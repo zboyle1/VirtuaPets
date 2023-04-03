@@ -10,7 +10,7 @@ function isLoggedIn(): ?string {
 
 function guest_nav() {
     echo <<< GUESTLINKS
-    <li><a href = "">Login</a>
+    <li><a href = ""  onclick = "openLogin()">Login</a>
     <li><a href = "">Sign Up</a>
     <li><a href = "">Home</a>
     GUESTLINKS;
@@ -45,6 +45,16 @@ $user = isLoggedIn();
         <script src = "js/app.js"></script>
     </head>
     <body>
+        <div class = "login-form" id = "login">
+            <form onsubmit="return(loginpop())">
+				Username: <input type="text" id="user"><br>
+				Password: <input type="text" id="pass"><br>
+				<input type="submit" class="button" value="Login">
+                <input type="button" class="button" value="Sign-up">
+                <input type="button" class="button" value="Cancel">
+			</form>
+            <div id="message"></div>
+        </div>
         <div class = "grid-container">
         <div class = "grid-x">
            <div id = "cell small-12 medium-12 large-12">
@@ -66,3 +76,26 @@ $user = isLoggedIn();
 ?>
                 </ul>
             </div>
+    <script>
+        function loginpop() {
+
+        }
+        
+        function login() {
+            user = $("#user").val();
+			pass = $("#pass").val();
+            err = "";
+            
+            if( username != "" && password != "") {
+			    $.post("./login.php",{"user": "user", "pass": pass },function(data) {
+                  	if(response == 1) {
+                        header("Location: index.php");
+                    } else {
+                        err = "Invalid login";
+                        $("#message").html(data);
+                    }
+                    });
+                return(false);
+            }
+        }
+    </script>
