@@ -31,7 +31,7 @@ $user = isLoggedIn();
 
 <html>
     <head>
-        <title>Virtual Pets<?php echo (!isset($page) ? : "- $page"); ?></title>
+        <title>Virtual Pets<?php echo ($page != "home" ? "" : "- $page"); ?></title>
         <!-- jQuery -->
         <script src = "jquery-3.6.1.min.js"></script>
 	
@@ -45,10 +45,13 @@ $user = isLoggedIn();
         <script src = "js/app.js"></script>
     </head>
     <body>
+        <div class = "grid-container">
         <div class = "grid-x">
-           <div id = "cell">
+           <div id = "cell small-12 medium-12 large-12">
                 Logo
             </div>
+        </div>
+        <dix class = "grid-x">
             <div class = "cell medium-6 large-4">
                 Welcome, <?php echo (!isset($user) ? "guest!" : "$user!")?>
             </div>
