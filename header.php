@@ -66,4 +66,3 @@ $user = isLoggedIn();
 ?>
                 </ul>
             </div>
-        </div>
