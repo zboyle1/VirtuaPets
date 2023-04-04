@@ -1,16 +1,16 @@
 <?php
 
 function isLoggedIn(): ?string {
-    if(!isset($_COOKIE['userid'])) {
+    if(!isset($_COOKIE['user'])) {
 	    return null;
     } else {
-        return $_COOKIE['userid'];
+        return $_COOKIE['user'];
     }
 }
 
 function guest_nav() {
     echo <<< GUESTLINKS
-    <li><a href = ""  onclick = "openLogin()">Login</a>
+    <li><a href = "loginpage.php">Login</a>
     <li><a href = "">Sign Up</a>
     <li><a href = "">Home</a>
     GUESTLINKS;
@@ -18,22 +18,22 @@ function guest_nav() {
 
 function user_nav($user) {
     echo <<< USERLINKS
-    <li><a href = "">Home</a>
+    <li><a href = "index.php">Home</a>
     <li><a href = "">Profile</a>
     <li><a href = "">My Pets</a>
     <li><a href = "">Shops</a>
-    <li><a href = "loginpage.php">Logout</a>
+    <li><a onclick = "logout()">Logout</a>
     USERLINKS;
 }
 
 $user = isLoggedIn();
 ?>
-
+<!DOCTYPE html>
 <html>
     <head>
         <title>Virtual Pets<?php echo ($page != "home" ? "" : "- $page"); ?></title>
         <!-- jQuery -->
-        <script src = "jquery-3.6.1.min.js"></script>
+        <script src = "jquery-3.6.3.min.js"></script>
 	
         <!-- Foundation -->
         <link rel = "stylesheet" href = "css/foundation.css">
@@ -43,15 +43,24 @@ $user = isLoggedIn();
         <script src = "js/vendor/what-input.js"></script>
         <script src = "js/vendor/foundation.js"></script>
         <script src = "js/app.js"></script>
+        
+        <script>
+            function logout() {
+                $.post("login.php", {"cmd":"logout"}, function(data) {
+                    window.location.href = "index.php";
+                });
+            }
+        </script>
     </head>
     <body>
+        <script>0</script>
         <div class = "grid-container">
         <div class = "grid-x">
            <div id = "cell small-12 medium-12 large-12">
                 Logo
             </div>
         </div>
-        <dix class = "grid-x">
+        <div class = "grid-x">
             <div class = "cell medium-6 large-4">
                 Welcome, <?php echo (!isset($user) ? "guest!" : "$user!")?>
             </div>
@@ -66,3 +75,4 @@ $user = isLoggedIn();
 ?>
                 </ul>
             </div>
+        </div>
