@@ -12,16 +12,17 @@ function guest_nav() {
     echo <<< GUESTLINKS
     <li><a href = "loginpage.php">Login</a>
     <li><a href = "">Sign Up</a>
-    <li><a href = "">Home</a>
+    <li><a href = "index.php">Home</a>
     GUESTLINKS;
 }
 
 function user_nav($user) {
     echo <<< USERLINKS
     <li><a href = "index.php">Home</a>
-    <li><a href = "">Profile</a>
-    <li><a href = "">My Pets</a>
-    <li><a href = "">Shops</a>
+    <li><a href = "places/profile.php">My Pets</a>
+    <li><a href = "places/inventory.php">Inventory</a>
+    <li><a href = "places/createpet.php">Create a Pet</a>
+    <li><a href = "places/shop.php">Shop</a>
     <li><a onclick = "logout()">Logout</a>
     USERLINKS;
 }
