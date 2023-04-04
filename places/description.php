@@ -1,6 +1,6 @@
 <?php
-	include 'header.php';
-    include 'footer.php';
+	include '../header.php';
+    include '../footer.php';
 ?>
     <div class = "x-grid">
         <div class = "cell">

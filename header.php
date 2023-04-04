@@ -10,19 +10,19 @@ function isLoggedIn(): ?string {
 
 function guest_nav() {
     echo <<< GUESTLINKS
-    <li><a href = "loginpage.php">Login</a>
+    <li><a href = "/~zboyle1/loginpage.php">Login</a>
     <li><a href = "">Sign Up</a>
-    <li><a href = "index.php">Home</a>
+    <li><a href = "/~zboyle1/index.php">Home</a>
     GUESTLINKS;
 }
 
 function user_nav($user) {
     echo <<< USERLINKS
-    <li><a href = "index.php">Home</a>
-    <li><a href = "places/profile.php">My Pets</a>
-    <li><a href = "places/inventory.php">Inventory</a>
-    <li><a href = "places/createpet.php">Create a Pet</a>
-    <li><a href = "places/shop.php">Shop</a>
+    <li><a href = "/~zboyle1/index.php">Home</a>
+    <li><a href = "/~zboyle1/places/profile.php">My Pets</a>
+    <li><a href = "/~zboyle1/places/inventory.php">Inventory</a>
+    <li><a href = "/~zboyle1/places/createpet.php">Create a Pet</a>
+    <li><a href = "/~zboyle1/places/shop.php">Shop</a>
     <li><a onclick = "logout()">Logout</a>
     USERLINKS;
 }
@@ -34,16 +34,16 @@ $user = isLoggedIn();
     <head>
         <title>Virtual Pets<?php echo ($page != "home" ? "" : "- $page"); ?></title>
         <!-- jQuery -->
-        <script src = "jquery-3.6.3.min.js"></script>
+        <script src = "/~zboyle1/jquery-3.6.3.min.js"></script>
 	
         <!-- Foundation -->
-        <link rel = "stylesheet" href = "css/foundation.css">
-        <link rel = "stylesheet" href = "css/app.css">
+        <link rel = "stylesheet" href = "/~zboyle1/css/foundation.css">
+        <link rel = "stylesheet" href = "/~zboyle1/css/app.css">
 
-        <script src = "js/vendor/jquery.js"></script>
-        <script src = "js/vendor/what-input.js"></script>
-        <script src = "js/vendor/foundation.js"></script>
-        <script src = "js/app.js"></script>
+        <script src = "/~zboyle1/js/vendor/jquery.js"></script>
+        <script src = "/~zboyle1/js/vendor/what-input.js"></script>
+        <script src = "/~zboyle1/js/vendor/foundation.js"></script>
+        <script src = "/~zboyle1/js/app.js"></script>
         
         <script>
             function logout() {
