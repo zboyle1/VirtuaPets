@@ -1,7 +1,36 @@
-.login-form {
-    display: none;
-    position: fixed;
-    z-index: 9;
-    width: 300 px;
-
+.body {
+    background-color: #969696;
 }
+
+#container-wrapper {
+    border-style: solid;
+    border-width: 0.1em;
+    border-radius: 0.5em;
+    margin-top: 1%;
+}
+
+
+#logo {
+    background-color: #303030;
+}
+
+#welcome {
+    background-color:#a7a7a7;   
+}
+
+#nav {
+    background-color: #a7a7a7;
+    text-align: right;
+}
+#nav .li {
+    color:#303030;
+    border-left-width: 0.1 em;
+    border-color: #858585;
+}
+
+#content {
+    border-radius: 0.5 em;
+    border-width: 0.1 em;
+    border-color: black;
+}
+
