@@ -47,17 +47,17 @@ $user = isLoggedIn();
     
     </head>
     <body>
-        <div class = "grid-container" id = "container-wrapper">
+        <div class = "grid-container">
         <div class = "grid-x">
-           <div class = "cell small-12 medium-12 large-12" id = "logo">
+           <div class = "small-12 medium-12 large-12 cell" id = "logo">
                 <h1>Logo</h1>
             </div>
         </div>
         <div class = "grid-x">
-            <div class = "cell medium-6 large-4" id = "welcome">
+            <div class = "medium-6 large-4 cell" id = "welcome">
                 Welcome, <?php echo (!isset($user) ? "guest!" : "$user!")?>
             </div>
-            <div class = "cell medium-6 large-8" id = "nav">
+            <div class = "cell medium-6 large-8 cell" id = "nav">
                 <ul class = "menu">
 <?php
     if(!isset($user)) {

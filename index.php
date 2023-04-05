@@ -2,7 +2,7 @@
 	include 'header.php';
     include 'footer.php';
 ?>
-    <div class = "x-grid">
+    <div class = "grid-x">
         <div class = "cell" id = "content">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus risus nunc, eleifend non erat eget, feugiat rhoncus est. Proin cursus orci ut nisl mattis, a pulvinar nisl porttitor. Maecenas scelerisque nunc augue, at scelerisque quam dignissim at. Integer aliquam imperdiet ex, at rhoncus nulla pellentesque ac. Integer sit amet suscipit leo. Curabitur vel felis sapien. Pellentesque interdum pulvinar metus, eget pellentesque libero mollis sed. Nulla sed convallis orci, sit amet viverra enim. Etiam finibus massa id ante consequat commodo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi porttitor tristique sodales. Duis sed erat erat.
 
