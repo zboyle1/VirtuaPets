@@ -34,7 +34,7 @@ function user_nav($user) {
     <div class = "grid-x">
     USERLINKS;
 
-    include 'petsidebar.php';
+    include '/~zboyle1/petsidebar.php';
     echo '<div class = "small-6 medium-8 large-10 cell">';
 }
 
