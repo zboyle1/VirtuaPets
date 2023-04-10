@@ -35,7 +35,9 @@ function user_nav($user) {
     USERLINKS;
 
     include '/~zboyle1/petsidebar.php';
-    echo '<div class = "small-6 medium-8 large-10 cell">';
+?>
+    <div class = "small-6 medium-8 large-10 cell">
+<?php
 }
 
 $user = isLoggedIn();
@@ -43,18 +45,18 @@ $user = isLoggedIn();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Virtual Pets<?php echo ($page != "home" ? "" : "- $page"); ?></title>
-        <!-- jQuery -->
+        <title>Virtual Pets<?php echo (!isset($page) ? "" : "- $page"); ?></title>
         <script src = "/~zboyle1/jquery-3.6.3.min.js"></script>
 
-        <link rel = "stylesheet" href = "/~zboyle1/css/foundation.css">
-        <link rel = "stylesheet" href = "/~zboyle1/css/app.css">
+        <script src = "/~zboyle1/js/ajax.js"></script>
 
         <script src = "/~zboyle1/js/vendor/jquery.js"></script>
         <script src = "/~zboyle1/js/vendor/what-input.js"></script>
         <script src = "/~zboyle1/js/vendor/foundation.js"></script>
         <script src = "/~zboyle1/js/app.js"></script>
-        <script src = "/~zboyle1/js/ajax.js"></script>
+
+        <link rel = "stylesheet" href = "/~zboyle1/css/foundation.css">
+        <link rel = "stylesheet" href = "/~zboyle1/css/app.css">
     
     </head>
     <body>
