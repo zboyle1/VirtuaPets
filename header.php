@@ -15,7 +15,7 @@ function guest_nav() {
     <li><a href = "/~zboyle1/index.php">Home</a>
     </div>
     </div>
-    <div class = "grid-x">
+    <div id = "content" class = "grid-x">
     <div class = "cell">
     GUESTLINKS;
 }
@@ -31,7 +31,7 @@ function user_nav($user) {
     </ul>
     </div>
     </div>
-    <div class = "grid-x">
+    <div id = "content" class = "grid-x">
     USERLINKS;
 
     include '/~zboyle1/petsidebar.php';
@@ -45,7 +45,7 @@ $user = isLoggedIn();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Virtual Pets<?php echo (!isset($page) ? "" : "- $page"); ?></title>
+        <title>Virtual Pets</title>
         <script src = "/~zboyle1/jquery-3.6.3.min.js"></script>
 
         <script src = "/~zboyle1/js/ajax.js"></script>
@@ -62,16 +62,16 @@ $user = isLoggedIn();
     <body>
         <div class = "grid-container">
         <div class = "grid-x">
-           <div class = "cell">
+           <div id ="logo" class = "cell">
                 <h1>Logo</h1>
             </div>
         </div>
         <div class = "grid-x">
-            <div class = "medium-6 large-4 cell" id = "welcome">
+            <div id = "welcome" class = "medium-6 large-4 cell">
                 Welcome, <?php echo (!isset($user) ? "guest!" : "$user!")?>
             </div>
-            <div class = "medium-6 large-8 cell">
-                <ul class = "menu">
+            <div id = "nav" class = "medium-6 large-8 cell">
+                <ul class = "menu ali">
 <?php
     !isset($user) ? guest_nav() : user_nav($user)
 ?>
