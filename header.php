@@ -15,7 +15,7 @@ function guest_nav() {
     <li><a href = "/~zboyle1/index.php">Home</a>
     </div>
     </div>
-    <div id = "content" class = "grid-x">
+    <div id = "content" class = "grid-x grid-padding-x grid-margin-x">
     <div class = "cell">
     GUESTLINKS;
 }
@@ -31,7 +31,7 @@ function user_nav($user) {
     </ul>
     </div>
     </div>
-    <div id = "content" class = "grid-x">
+    <div id = "content" class = "grid-x grid-padding-x grid-margin-x">
     USERLINKS;
 
     include '/~zboyle1/petsidebar.php';
@@ -61,17 +61,17 @@ $user = isLoggedIn();
     </head>
     <body>
         <div class = "grid-container">
-        <div class = "grid-x">
-           <div id ="logo" class = "cell">
+        <div class = "grid-x grid-padding-x">
+           <div id ="logo" class = "medium-6 large-12 cell">
                 <h1>Logo</h1>
             </div>
         </div>
-        <div class = "grid-x">
-            <div id = "welcome" class = "medium-6 large-4 cell">
+        <div class = "grid-x grid-padding-x">
+            <div id = "welcome" class = "large-4 cell">
                 Welcome, <?php echo (!isset($user) ? "guest!" : "$user!")?>
             </div>
-            <div id = "nav" class = "medium-6 large-8 cell">
-                <ul class = "menu ali">
+            <div id = "nav" class = "cell auto">
+                <ul class = "menu align-right">
 <?php
     !isset($user) ? guest_nav() : user_nav($user)
 ?>
