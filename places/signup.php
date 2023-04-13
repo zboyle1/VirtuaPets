@@ -21,10 +21,7 @@
             </div>
             <div class="large-3 cell">
 				<input type="submit" class="button" value="Sign-up">
-            </div>
-            <div class="large-3 cell">
-                Have an account?<br>
-                <input type="button" class="button" value="Login">
+                <a href = "/~zboyle1/places/login.php" class="button secondary"> Log-in </a>
             </div>
 			</form>
             <div id="message"></div>
