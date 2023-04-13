@@ -11,7 +11,7 @@ function isLoggedIn(): ?string {
 function guest_nav() {
     echo <<< GUESTLINKS
     <li><a href = "/~zboyle1/places/login.php">Login</a>
-    <li><a href = "">Sign Up</a>
+    <li><a href = "/~zboyle1/places/signup.php">Sign Up</a>
     <li><a href = "/~zboyle1/index.php">Home</a>
     </div>
     </div>
@@ -46,10 +46,11 @@ $user = isLoggedIn();
 <html>
     <head>
         <title>Virtual Pets</title>
-        <script src = "/~zboyle1/jquery-3.6.3.min.js"></script>
+
+        <script src = "/~zboyle1/js/jquery-3.6.3.min.js"></script>
 
         <script src = "/~zboyle1/js/ajax.js"></script>
-
+        
         <script src = "/~zboyle1/js/vendor/jquery.js"></script>
         <script src = "/~zboyle1/js/vendor/what-input.js"></script>
         <script src = "/~zboyle1/js/vendor/foundation.js"></script>
@@ -57,12 +58,12 @@ $user = isLoggedIn();
 
         <link rel = "stylesheet" href = "/~zboyle1/css/foundation.css">
         <link rel = "stylesheet" href = "/~zboyle1/css/app.css">
-    
+
     </head>
     <body>
         <div class = "grid-container">
         <div class = "grid-x grid-padding-x">
-           <div id ="logo" class = "medium-6 large-12 cell">
+           <div id ="logo" class = "cell">
                 <h1>Logo</h1>
             </div>
         </div>

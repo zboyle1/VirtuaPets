@@ -1,6 +1,6 @@
-const loginurl = "/~zboyle1/ajax/loginajax.php";
 const pets = "/~zboyle1/ajax/petsajax.php";
 const users = "/~zboyle1/ajax/usersajax.php";
+const inventory = "/~zboyle1/ajax/inventoryajax.php";
 
 function login() {
     user = $("#user").val();
@@ -8,7 +8,7 @@ function login() {
     err = "";
 
     if( user != "" && pass != "") {
-        $.post(loginurl,{"cmd": "login", "user": user, "pass": pass },function(data) {
+        $.post(users, {"cmd": "login", "user": user, "pass": pass },function(data) {
             if(data == 0) {
                 err = "Invalid login";
                 $("#message").html(data);
@@ -21,19 +21,34 @@ function login() {
 }
 
 function logout() {
-    $.post(loginurl, {"cmd": "logout"}, function(data) {
-        window.location.href = "/~zboyle1/index.php";
+    $.post(users, {"cmd": "logout"}, function(data) {
+        if(data == 1) {
+            window.location.href = "/~zboyle1/index.php";
+        } else {
+            console.error('something weird happened');
+        }
     });
 }
 
 function signup() {
+    user = $("#user").val();
+    pass = $("#pass").val();
+    month = $("#month").val();
+    day = $("#day").val();
+    year = $("#year").val();
     if( user != "" && pass != "") {
-        $.post(users, {"cmd": "signup", "user": user, "pass": pass, "dob": dob}, function(data) {
+        $.post(users, {"cmd": "signup", "user": user, "pass": pass, "month": month, "day": day, "year": year}, function(data) {
             if(data == 0) {
+                err = "Invalid birthday input";
+                $("#message").html(err);
+            } else if(data == 1) {
+                err = "Username taken";
+                $("#message").html(err);
+            } else if(data == 2) {
                 err = "Signup failed";
                 $("#message").html(err);
             } else {
-                window.location.href = "/~zboyle1/index.php";
+                window.location.href = "/~zboyle1/createpet.php";
             }
         });
     }
@@ -45,6 +60,14 @@ function showuser() {
 
 function buyitem() {
     
+}
+
+function showitems() {
+
+}
+
+function useitem() {
+
 }
 
 function createpet() {
