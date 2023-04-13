@@ -12,7 +12,6 @@ function guest_nav() {
     echo <<< GUESTLINKS
     <li><a href = "/~zboyle1/places/login.php">Login</a>
     <li><a href = "/~zboyle1/places/signup.php">Sign Up</a>
-    <li><a href = "/~zboyle1/index.php">Home</a>
     </div>
     </div>
     <div id = "content" class = "grid-x grid-padding-x grid-margin-x">
@@ -22,7 +21,6 @@ function guest_nav() {
 
 function user_nav($user) {
     echo <<< USERLINKS
-    <li><a href = "/~zboyle1/index.php">Home</a>
     <li><a href = "/~zboyle1/places/profile.php">My Pets</a>
     <li><a href = "/~zboyle1/places/inventory.php">Inventory</a>
     <li><a href = "/~zboyle1/places/createpet.php">Create a Pet</a>
@@ -73,6 +71,7 @@ $user = isLoggedIn();
             </div>
             <div id = "nav" class = "cell auto">
                 <ul class = "menu align-right">
+                <li><a href = "/~zboyle1/index.php">Home</a>
 <?php
     !isset($user) ? guest_nav() : user_nav($user)
 ?>
