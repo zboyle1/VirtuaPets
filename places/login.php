@@ -15,7 +15,7 @@
                 </label>
             </div>
             <div class="large-3 cell">
-            <button class = "submit button">Log-in</button>
+                <button class = "submit button">Login</button>
                 <a href = "/~zboyle1/places/signup.php" class="button secondary">Sign up</a>
             </div>
             <div id="message"></div>

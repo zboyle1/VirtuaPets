@@ -30,32 +30,32 @@ function logout() {
     });
 }
 
-/**
+
 function signup() {
     user = $("#user").val();
     pass = $("#pass").val();
-    month = $("#month").val();
-    day = $("#day").val();
-    year = $("#year").val();
+    dob = $("#dob").val();
+    err = "";
+
     if( user != "" && pass != "") {
-        $.post(account, {"cmd": "signup", "user": user, "pass": pass, "month": month, "day": day, "year": year}, function(data) {
-            if(data == 0) {
+        $.post(account, {"cmd": "signup", "user": user, "pass": pass, "dob": dob}, function(data) {
+            if(data == '0') {
                 err = "Invalid birthday input";
                 $("#message").html(err);
-            } else if(data == 1) {
+            } else if(data == '1') {
                 err = "Username taken";
                 $("#message").html(err);
-            } else if(data == 2) {
+            } else if(data == '2') {
                 err = "Signup failed";
                 $("#message").html(err);
-            } else {
-                window.location.href = "/~zboyle1/createpet.php";
+            } else if(data == 'success'){
+                window.location.href = "/~zboyle1/";
             }
         });
     }
 }
 
-function showuser() {
+/* function showuser() {
     
 }
 

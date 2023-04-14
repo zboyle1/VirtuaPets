@@ -21,10 +21,10 @@
             </div>
             <div class="large-3 cell">
 				<button class = "submit button">Sign up</button>
-                <a href = "/~zboyle1/places/login.php" class="button secondary"> Log-in </a>
+                <a href = "/~zboyle1/places/login.php" class="button secondary">Login</a>
+                <div id="message"></div>
             </div>
 			</form>
-            <div id="message"></div>
 <?php
     send_footer();
 ?>
