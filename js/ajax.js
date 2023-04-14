@@ -1,5 +1,5 @@
 const pets = "/~zboyle1/ajax/petsajax.php";
-const users = "/~zboyle1/ajax/usersajax.php";
+const account = "/~zboyle1/ajax/loginajax.php";
 const inventory = "/~zboyle1/ajax/inventoryajax.php";
 
 function login() {
@@ -8,12 +8,12 @@ function login() {
     err = "";
 
     if( user != "" && pass != "") {
-        $.post(users, {"cmd": "login", "user": user, "pass": pass },function(data) {
-            if(data == 0) {
-                err = "Invalid login";
-                $("#message").html(data);
-            } else {
+        $.post(account, {"cmd": "login", "user": user, "pass": pass },function(data) {
+            if(data == '1') {
                 window.location.href = "/~zboyle1/index.php";
+            } else {
+                err = "Invalid login";
+                $("#message").html(err);
             }
         });
         return(false);
@@ -21,8 +21,8 @@ function login() {
 }
 
 function logout() {
-    $.post(users, {"cmd": "logout"}, function(data) {
-        if(data == 1) {
+    $.post(account, {"cmd": "logout"}, function(data) {
+        if(data == '1') {
             window.location.href = "/~zboyle1/index.php";
         } else {
             console.error('something weird happened');
@@ -30,6 +30,7 @@ function logout() {
     });
 }
 
+/**
 function signup() {
     user = $("#user").val();
     pass = $("#pass").val();
@@ -37,7 +38,7 @@ function signup() {
     day = $("#day").val();
     year = $("#year").val();
     if( user != "" && pass != "") {
-        $.post(users, {"cmd": "signup", "user": user, "pass": pass, "month": month, "day": day, "year": year}, function(data) {
+        $.post(account, {"cmd": "signup", "user": user, "pass": pass, "month": month, "day": day, "year": year}, function(data) {
             if(data == 0) {
                 err = "Invalid birthday input";
                 $("#message").html(err);
@@ -92,4 +93,4 @@ function showpet() {
     $.post(pets, {"cmd": "show"}, function(data) {
         $("#mypet").html(data);
     });
-}
+} */

@@ -20,7 +20,7 @@
                 </label>
             </div>
             <div class="large-3 cell">
-				<input type="submit" class="button" value="Sign-up">
+				<button class = "submit button">Sign up</button>
                 <a href = "/~zboyle1/places/login.php" class="button secondary"> Log-in </a>
             </div>
 			</form>

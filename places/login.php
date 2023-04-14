@@ -15,13 +15,11 @@
                 </label>
             </div>
             <div class="large-3 cell">
-				<input type="submit" class="button" value="Login">
+            <button class = "submit button">Log-in</button>
+                <a href = "/~zboyle1/places/signup.php" class="button secondary">Sign up</a>
             </div>
-            <div class="large-3 cell">
-                <input type="button" class="button" value="Sign-up">
-            </div>
-			</form>
             <div id="message"></div>
+			</form>
 <?php
     send_footer();
 ?>

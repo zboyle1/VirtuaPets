@@ -48,12 +48,11 @@ $user = isLoggedIn();
         <script src = "/~zboyle1/js/vendor/jquery.js"></script>
         <script src = "/~zboyle1/js/vendor/what-input.js"></script>
         <script src = "/~zboyle1/js/vendor/foundation.js"></script>
+        <script src = "/~zboyle1/js/ajax.js"></script>
         <script src = "/~zboyle1/js/app.js"></script>
 
         <link rel = "stylesheet" href = "/~zboyle1/css/foundation.css">
         <link rel = "stylesheet" href = "/~zboyle1/css/app.css">
-
-        <script src = "/~zboyle1/js/ajax.js"></script>
 
     </head>
     <body>

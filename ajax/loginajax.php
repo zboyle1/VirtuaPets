@@ -4,22 +4,21 @@ define( 'DB_USER', 'zboyle1' );
 define( 'DB_PASSWORD', 'zboyle1' );
 define( 'DB_HOST', 'localhost' );
 
-function isvalid ($user, $pass) {	
-    $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+function isvalid ($user, $pass) {	
+    global $conn;
 
     $sql = "SELECT * FROM users WHERE username = '$user' AND pass = '$pass'";
     $result = $conn->query($sql);
-    
-    // Check for user name
+
     if (mysqli_num_rows($result) == 0) {
-        mysqli_close($conn);
         return false;
     } else {
-        mysqli_close($conn);
         return true;
     }	
 }
@@ -38,8 +37,7 @@ function logout() {
     setcookie("user","", time() - 3600, "/");
     echo '1';
 }
-
-function signup() {
+/**function signup() {
     $month = $_POST['month'];
     $day = $_POST['day'];
     $year = $_POST['year'];
@@ -83,6 +81,7 @@ function signup() {
     login();
     echo 'success';
 }
+*/
 
 $cmd = $_POST['cmd'];
 
@@ -90,6 +89,11 @@ if($cmd == 'login') {
     login();
 } else if ($cmd == 'logout') {
     logout();
-} else if ($cmd == 'signup') {
-    signup();
 }
+/** 
+ * else if ($cmd == 'signup') {
+ *  signup();
+ * }
+ */
+
+mysqli_close($conn);
