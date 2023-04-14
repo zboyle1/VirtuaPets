@@ -16,9 +16,9 @@
         <label>Birthday 
             <input type="date" id="dob">
         </label>
+        <div class = "callout alert" id="message"></div>
 		<button class = "submit button">Sign up</button>
         <a href = "/~zboyle1/places/login.php" class="button secondary">Login</a>
-        <div id="message"></div>
 	</form>
     </div>
 </div>

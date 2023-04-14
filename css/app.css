@@ -24,6 +24,6 @@ body {
     background-color: #8a8a8a;
 }
 
-#forms {
-    max-width: 600px;
+#message {
+    display: none;
 }
