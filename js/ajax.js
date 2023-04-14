@@ -32,26 +32,27 @@ function logout() {
 
 
 function signup() {
-    user = $("#user").val();
-    pass = $("#pass").val();
+    newuser = $("#user").val();
+    newpass = $("#pass").val();
     dob = $("#dob").val();
     err = "";
 
     if( user != "" && pass != "") {
-        $.post(account, {"cmd": "signup", "user": user, "pass": pass, "dob": dob}, function(data) {
+        $.post(account, {"cmd": "signup", "newuser": newuser, "newpass": newpass, "dob": dob}, function(data) {
             if(data == '0') {
                 err = "Invalid birthday input";
-                $("#message").html(err);
             } else if(data == '1') {
                 err = "Username taken";
-                $("#message").html(err);
             } else if(data == '2') {
                 err = "Signup failed";
-                $("#message").html(err);
-            } else if(data == 'success'){
-                window.location.href = "/~zboyle1/";
+            } else if(data == '3') {
+                window.location.href = "/~zboyle1/index.php";
+            } else {
+                err = "Signup failed";
             }
+            $("#message").html(err);
         });
+        return(false);
     }
 }
 

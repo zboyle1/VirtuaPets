@@ -4,6 +4,7 @@
     include '../footer.php';
 ?>
 <div id = "content" class = "grid-x grid-padding-x grid-margin-x">
+    
     <div class="cell large-8 medium-6 small-4">    
     <form onsubmit="return(signup())">
 		<label>Username
