@@ -9,7 +9,7 @@
     </div>
     <!-- image of chosen pet to the right -->
     <div class = "cell small-4 medium-4 large-5">
-        <img src="/~zboyle1/petimg/petplaceholder.png">
+        <img src="/~zboyle1/assets/petimg/petplaceholder.png">
     </div>
     <!-- to the left: -->
     <div class = "cell auto">
