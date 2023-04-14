@@ -20,11 +20,11 @@ _______________________________________________________________________
 | about       |    X    |           |          |           |          |
 | description |    X    |           |          |           |          |
 | login       |         |           |          |     X     |          |
-| signup      |         |           |          |     X     |          |
+| signup      |         |           |    X     |           |          |
 | profile     |    X    |           |          |           |          |
 | shop        |    X    |           |          |           |          |
 | inventory   |    X    |           |          |           |          |
-| createpet   |         |     X     |          |           |          |
+| createpet   |         |           |    X     |           |          |
 |-------------|---------|-----------|----------|-----------|----------|
 
 - need to add games or animated icons to click
