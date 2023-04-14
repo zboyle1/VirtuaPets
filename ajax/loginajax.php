@@ -45,10 +45,6 @@ function signup() {
 
     global $conn;
     
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-
     $sql = "SELECT username FROM users WHERE username = '$user';";
     $result = $conn->query($sql);
     
