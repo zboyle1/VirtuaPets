@@ -14,8 +14,6 @@ function guest_nav() {
     <li><a href = "/~zboyle1/places/signup.php">Sign Up</a>
     </div>
     </div>
-    <div id = "content" class = "grid-x grid-padding-x grid-margin-x">
-    <div class = "cell">
     GUESTLINKS;
 }
 
@@ -29,13 +27,9 @@ function user_nav($user) {
     </ul>
     </div>
     </div>
-    <div id = "content" class = "grid-x grid-padding-x grid-margin-x">
     USERLINKS;
 
     include '/~zboyle1/petsidebar.php';
-?>
-    <div class = "small-6 medium-8 large-10 cell">
-<?php
 }
 
 $user = isLoggedIn();

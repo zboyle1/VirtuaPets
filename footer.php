@@ -1,8 +1,6 @@
 <?php
 function send_footer() {
     echo <<< FOOTER
-    </div>
-    </div>
     <div id = "footer" class = "grid-x grid-padding-x">
         <div class = "cell large-12 medium-12 small-12">
             <a href ="/~zboyle1/places/description.php">Site Description</a> | <a href = "/~zboyle1/places/about.php">About</a>
