@@ -43,7 +43,7 @@ function signup() {
     $pass = $_POST['newpass'];
     $dob = $_POST['dob'];
 
-    $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    global $conn;
     
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
