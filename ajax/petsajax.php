@@ -22,16 +22,19 @@ function createpet() {
     $selectid = "SELECT id FROM users WHERE username = '$curruser';";
     $userid = $conn->query($selectid);
 
+    if (mysqli_num_rows($userid) == 0) {
+        echo '0';
+        return;
+    }
+
     $row = mysqli_fetch_assoc($userid);
     $curruser = $row["id"];
 
-    echo $curruser . $userid;
-
-    $insert = "INSERT INTO pets(user_id, pet_name, species, color, created, last_fed)
-                VALUES ('$curruser', '$petname', '$species', '$color', '$gender');";
+    $insert = "INSERT INTO pets(user_id, pet_name, gender, species, color,  created, last_fed)
+                VALUES ($curruser, '$petname', '$gender', '$species', '$color', now(), now());";
     $result = $conn->query($insert);
 
-    $sql = "SELECT * FROM pets WHERE user_id == '$userid' AND petname == '$petname';";
+    $sql = "SELECT * FROM pets WHERE user_id = $curruser AND pet_name = '$petname';";
     $result = $conn->query($sql);
 
     if(mysqli_num_rows($result) == 0) {
@@ -57,4 +60,5 @@ $cmd = $_POST['cmd'];
 if($cmd == 'create') {
     createpet();
 }
+
 mysqli_close($conn);
