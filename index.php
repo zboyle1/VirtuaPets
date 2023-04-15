@@ -3,6 +3,10 @@
     include 'footer.php';
 ?>
 <div id = "content" class = "grid-x grid-padding-x grid-margin-x">
+    <div class = "cell" >
+        <h3>Welcome <?php echo !$_SESSION['user'] ? "guest" : $_SESSION['user']; ?>!</h3>
+    </div>
+    
     <div class = "cell">
         <h4 class = "subheader">Adopt and take care of a virtual pet</h4>
     </div>

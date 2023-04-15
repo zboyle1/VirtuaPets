@@ -25,6 +25,7 @@ function isvalid ($user, $pass) {
 
 function login() {
     if(isvalid($_POST['user'], $_POST['pass'])) {
+        session_destroy();
         setcookie("user",$_POST['user'],time() + (86400 * 30), "/");
         echo '1';
     } else {
@@ -34,6 +35,7 @@ function login() {
 }
 
 function logout() {
+    session_destroy();
     setcookie("user","", time() - 3600, "/");
     echo '1';
 }
@@ -64,6 +66,7 @@ function signup() {
         return;
     }
 
+    session_destroy();
     setcookie("user",$user,time() + (86400 * 30), "/");
     echo '3';
 }

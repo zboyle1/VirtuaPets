@@ -1,13 +1,10 @@
 <?php
 
-function isLoggedIn(): ?string {
-    if(!isset($_COOKIE['user'])) {
-	    return null;
-    } else {
-        return $_COOKIE['user'];
-    }
-}
+include 'functions.php';
 
+if(session_status() == PHP_SESSION_NONE) {
+    startsession();
+}
 function guest_nav() {
     echo <<< GUESTLINKS
     <li><a href = "/~zboyle1/places/login.php">Login</a>
@@ -19,7 +16,7 @@ function guest_nav() {
 
 function user_nav($user) {
     echo <<< USERLINKS
-    <li><a href = "/~zboyle1/places/profile.php">My Pets</a>
+    <li><a href = "/~zboyle1/places/profile.php?user={$_SESSION['user']}">My Pets</a>
     <li><a href = "/~zboyle1/places/inventory.php">Inventory</a>
     <li><a href = "/~zboyle1/places/createpet.php">Create a Pet</a>
     <li><a href = "/~zboyle1/places/shop.php">Shop</a>
@@ -32,7 +29,6 @@ function user_nav($user) {
     include '/~zboyle1/petsidebar.php';
 }
 
-$user = isLoggedIn();
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,11 +54,12 @@ $user = isLoggedIn();
         </div>
         <div class = "grid-x grid-padding-x">
             <div id = "welcome" class = "large-4 cell">
-                Welcome, <?php echo (!isset($user) ? "guest!" : "$user!")?>
+                <?php echo !$_SESSION['user'] ? "" : "Gold:". $_SESSION['gold']; ?>
             </div>
             <div id = "nav" class = "cell auto">
                 <ul class = "menu align-right">
                 <li><a href = "/~zboyle1/index.php">Home</a>
 <?php
-    !isset($user) ? guest_nav() : user_nav($user)
+    
+    !$_SESSION['user'] ? guest_nav() : user_nav($user)
 ?>
