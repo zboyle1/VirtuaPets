@@ -2,6 +2,9 @@ const pets = "/~zboyle1/ajax/petsajax.php";
 const account = "/~zboyle1/ajax/loginajax.php";
 const inventory = "/~zboyle1/ajax/inventoryajax.php";
 
+
+// Login functions
+
 function login() {
     user = $("#user").val();
     pass = $("#pass").val();
@@ -14,6 +17,7 @@ function login() {
             } else {
                 err = "Invalid login";
                 $("#message").html(err);
+                $("#message").css("display", "block");
             }
         });
         return(false);
@@ -51,12 +55,15 @@ function signup() {
                 err = "Signup failed";
             }
             $("#message").html(err);
+            $("#message").css("display", "block");
         });
         return(false);
     }
 }
 
-/* function showuser() {
+/* // User and item functions
+
+function showuser() {
     
 }
 
@@ -70,18 +77,32 @@ function showitems() {
 
 function useitem() {
 
-}
+} */
+
+// Pet functions
 
 function createpet() {
     petname = $("#petname").val();
-    if( petname != "") {
-        $.post(pets, {"cmd": "create", "petname": petname, "species": species, "color": color, "gender": gender}, function(data) {
-            $("#message").html(data);
+    species = $("#species").val();
+    color = $("#color").val();
+    gender = $('input[name=gender]:checked').val();
+
+    err = "";
+
+    $.post(pets, {"cmd": "create", "petname": petname, "species": species, "color": color, "gender": gender}, function(data) {
+        if(data == '1') {
             window.location.href = "/~zboyle1/places/profile.php";
-        });
-    }
+        } else {
+            err = "Pet creation failed";
+            $("#message").html(err);
+            $("#message").css("display", "block");
+            console.log(data);
+        }
+    });
+    return(false);
 }
 
+/*
 function feedpet() {
     petname = $("#petname").val();
     item = $("#item").val();
