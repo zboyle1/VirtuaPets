@@ -7,12 +7,14 @@
     <div class ="cell">
         <h3>Site Description</h3>
     </div>
+    
     <div class = "cell large-10">
         <div class="callout">
             <p style="margin-left: 1em;">
                 
             </p>
         </div>
+        
         <div class="callout">
             <p style="margin-left: 1em;">
             

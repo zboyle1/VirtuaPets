@@ -17,6 +17,7 @@
 		    <label>Pet name:
                 <input type="text" id="petname">
             </label>
+
             <label>Species
                 <select id = "species" onchange = "updatecolorop()" autocomplete="off">
                     <option value="">--Choose species--</option>
@@ -27,15 +28,18 @@
                     <option value="frog">Frog</option>
                </select>
             </label>
+
             <label>Color
                 <select id ="color" onchange = "updatepetphoto()" autocomplete="off">
                 </select>
             </label>
+
             <fieldset>
-            <legend>Pet gender</legend>
+                <legend>Pet gender</legend>
                 <input type="radio" name="gender" value="Male" id="male" required><label for="male">Male</label>
                 <input type="radio" name="gender" value="Female" id="female"><label for="female">Female</label>
             </fieldset>
+
             <div class = "callout alert" id="message"></div>
             <button class = "submit button">Create pet</button>
 	    </form>
