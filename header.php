@@ -35,15 +35,18 @@ function user_nav($user) {
     <head>
         <title>Virtual Pets</title>
 
+        <link rel = "stylesheet" href = "/~zboyle1/css/foundation.css">
+        <link rel = "stylesheet" href = "/~zboyle1/css/app.css">
+        <link rel = "stylesheet" href="/~zboyle1/jqueryconfirm/jquery-confirm.min.css">
+
         <script src = "/~zboyle1/js/vendor/jquery.js"></script>
         <script src = "/~zboyle1/js/vendor/what-input.js"></script>
         <script src = "/~zboyle1/js/vendor/foundation.js"></script>
+        <script src = "/~zboyle1/jqueryconfirm/jquery-confirm.min.js"></script>
         <script src = "/~zboyle1/js/ajax.js"></script>
         <script src = "/~zboyle1/js/app.js"></script>
 
-        <link rel = "stylesheet" href = "/~zboyle1/css/foundation.css">
-        <link rel = "stylesheet" href = "/~zboyle1/css/app.css">
-
+                
     </head>
     <body>
         <div class = "grid-container">
