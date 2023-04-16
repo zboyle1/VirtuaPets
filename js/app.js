@@ -24,8 +24,16 @@ function updatecolorop() {
     for(var i = 0; i < arr.length; i++) {
         s[i] = new Option(arr[i],arr[i]);
     }
+    
+    updatepetphoto();
 }
 
-function firstoption() {
-    
+function updatepetphoto() {
+    species = $("#species").val();
+    color = $("#color").val();
+
+    //imgdest = "/~zboyle1/assets/petimg/" + speacies + "/" + color + ".png";
+    imgdest = "/~zboyle1/assets/petimg/petplaceholder.png";
+
+    document.getElementById("newpet").src = imgdest;
 }

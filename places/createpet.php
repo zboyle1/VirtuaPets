@@ -9,7 +9,7 @@
     </div>
 
     <div class = "cell small-5 medium-4 large-4 align-self-middle">
-        <img class = "thumbnail" src="/~zboyle1/assets/petimg/petplaceholder.png">
+        <img class = "thumbnail" id = "newpet" src="/~zboyle1/assets/petimg/petplaceholder.png">
     </div>
 
     <div class = "cell small-7 medium-8 large-8">
