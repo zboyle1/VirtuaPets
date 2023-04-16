@@ -2,7 +2,6 @@ const pets = "/~zboyle1/ajax/petsajax.php";
 const account = "/~zboyle1/ajax/loginajax.php";
 const inventory = "/~zboyle1/ajax/inventoryajax.php";
 
-
 // Login functions
 
 function login() {
@@ -34,7 +33,6 @@ function logout() {
     });
 }
 
-
 function signup() {
     newuser = $("#user").val();
     newpass = $("#pass").val();
@@ -54,19 +52,31 @@ function signup() {
             } else {
                 err = "Signup failed";
             }
+            
             $("#message").html(err);
             $("#message").css("display", "block");
+            console.log(data);
         });
         return(false);
     }
 }
 
-/* // User and item functions
+// User and item functions
 
-function showuser() {
-    
+function showuser(user) {
+    $.post(account, {"cmd": "show", "user": user}, function(data) {
+        if(data == '0') {
+            err = "Could not find profile";
+            $("#message").html(err);
+            $("#message").css("display", "block");
+        } else {
+            $("#userinfo").html(data);
+        }
+    });
+    return(false);
 }
 
+/*
 function buyitem() {
     
 }
@@ -77,29 +87,41 @@ function showitems() {
 
 function useitem() {
 
-} */
+}
+*/
 
 // Pet functions
 
-function createpet() {
+function createpet(user) {
     petname = $("#petname").val();
     species = $("#species").val();
     color = $("#color").val();
     gender = $('input[name=gender]:checked').val();
 
-    err = "";
+    dest = "/~zboyle1/places/profile.php?user={" + user + "}";
 
     $.post(pets, {"cmd": "create", "petname": petname, "species": species, "color": color, "gender": gender}, function(data) {
         if(data == '1') {
-            window.location.href = "/~zboyle1/places/profile.php";
+            window.location.href = dest;
         } else {
             err = "Pet creation failed";
             $("#message").html(err);
             $("#message").css("display", "block");
-            console.log(data);
         }
     });
     return(false);
+}
+
+function showpet(id) {
+    $.post(pets, {"cmd": "show", "id": id}, function(data) {
+        if(data == '0') {
+            $("#message").html(err);
+            $("#message").css("display", "block");
+        } else {
+            $("#petinfo").html(data);
+        }
+    });
+    return (false);
 }
 
 /*
@@ -110,9 +132,4 @@ function feedpet() {
         $("#message").html(data);
     });
 }
-
-function showpet() {
-    $.post(pets, {"cmd": "show"}, function(data) {
-        $("#mypet").html(data);
-    });
-} */
+*/

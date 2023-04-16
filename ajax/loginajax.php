@@ -84,8 +84,6 @@ function showuser() {
 
     $user = $_POST['user'];
 
-    $user_arr = array();
-
     $select = "SELECT * FROM users WHERE username = '$user';";
     $result = $conn->query($select);
 
@@ -101,7 +99,7 @@ function showuser() {
     $age = date_diff(date_create($dob), date_create('now'))->y;
     $join = explode("-", $join);
     
-    echo '<table  id = "usertable"><tr>' .
+    echo '<table class = "unstriped" id = "usertable"><tr>' .
          '<td align = "center">Username:</td>' .
          '<td>' . $user . '</td>' .
          '</tr><tr>' .
