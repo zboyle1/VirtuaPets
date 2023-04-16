@@ -15,20 +15,9 @@ function createpet() {
     $species = $_POST['species'];
     $color = $_POST['color'];
     $gender = $_POST['gender'];
-    $curruser = $_COOKIE['user'];
+    $curruser = $_SESSION['userid'];
     
     global $conn;
-
-    $selectid = "SELECT id FROM users WHERE username = '$curruser';";
-    $userid = $conn->query($selectid);
-
-    if (mysqli_num_rows($userid) == 0) {
-        echo '0';
-        return;
-    }
-
-    $row = mysqli_fetch_assoc($userid);
-    $curruser = $row["id"];
 
     $insert = "INSERT INTO pets(user_id, pet_name, gender, species, color,  created, last_fed)
                 VALUES ($curruser, '$petname', '$gender', '$species', '$color', now(), now());";
