@@ -16,15 +16,15 @@ Petsite
     _______________________________________________________________________
     | Page        | Started | Front end | Back end | Touch-ups | Finished |
     |-------------|---------|-----------|----------|-----------|----------|
-    | index       |    X    |           |          |           |          |
-    | about       |         |     X     |          |           |          |
-    | description |    X    |           |          |           |          |
+    | index       |         |           |          |     X     |          |
+    | about       |         |           |          |     X     |          |
+    | description |         |           |          |     X     |          |
     | login       |         |           |          |     X     |          |
     | signup      |         |           |          |     X     |          |
-    | profile     |    X    |           |          |           |          |
+    | profile     |         |           |          |     X     |          |
     | shop        |    X    |           |          |           |          |
     | inventory   |    X    |           |          |           |          |
-    | createpet   |         |           |    X     |           |          |
+    | createpet   |         |           |          |     X     |          |
     |-------------|---------|-----------|----------|-----------|----------|
 
     - need to add games or animated icons to click
@@ -38,29 +38,39 @@ Petsite
             - ferret: base, Sable, Albino, Black, Panda
             - rabbit: base, Black, White, Broken, Cream
             - frog: base, Green, Blue, Black and Yellow, Brown
+    
+    
     ## AJAX
-        - check create a pet ajax (500 error)
-        - write request to display
-        - write request for gold amount to display amount on header
-
-    ## create a pet
-        - write javascript for image, changes image dynamically based on selection
+        - write request to displayitmes
+        - write request to delete and add items
+        - write request to subtract gold
 
     ## about
-        - add sections and titles for each section
         - fill in sections
 
-    # site descriptions
-        - add sections and titles for each section
+    ## site descriptions
         - fill in sections
 
-    ## profile
-        -add cell for user profile
-        - add cell for card view or callouts of pets (probs card?)
-            - a card for each pet under the user
+    ## index
+        - small placement adjustments
 
     ## inventory
-        - start writing
+        - create cards for each item
+        - link opens up dialog for option to feed or play with pet
+        - after feed
+            - on success: remove item from inventory - happy pet
+            - on failure: pet is full
+        - after play
+            -on sucess: remove item from inventory - happy pet
+            - on failure: pet is tired
+    
+    ## shop
+        - create shop layout
+        - create cards for each item
+        - link opens dialog asking if sure to buy
+            - on success: add item to user inventory, subtract gold
+            - on failure: not enough gold
+        
 --------------------------------------------------------------------------------------------------------------------------------
 ## would like to do
 
@@ -78,8 +88,7 @@ Petsite
         - disable button when feilds are not filled
 
     ## profile
-        - make link to profile based on chosen user, not current user cookie
-        - uses a 'get' method to find user information
+        - ability to edit own profile
 
     ## extra
         - create chatboard
