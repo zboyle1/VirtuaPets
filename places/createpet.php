@@ -13,7 +13,7 @@
     </div>
 
     <div class = "cell small-7 medium-8 large-8">
-        <form onsubmit="return(createpet())">
+        <form onsubmit="return(createpet(<?php echo $user ?>))">
 		    <label>Pet name:
                 <input type="text" id="petname">
             </label>
