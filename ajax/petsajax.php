@@ -58,13 +58,13 @@ function showpet() {
 
             $age = date_diff(date_create($birthdate), date_create('now'))->d;
             
-            echo '<div class="card" style="width: 200px;">' .
-                 '<div class="card-divider" id = "petname">' .
+            echo '<div class="card" style="width: 200px;" id="petstats">' .
+                 '<div class="card-divider">' .
                  '<h4>' . $petname . '</h4>' .
                  '</div>' .
                  //'<img src="/~zboyle1/assets/petimg/' . $species . '/' . $color . '.png">' .
                  '<img src="/~zboyle1/assets/petimg/petplaceholder.png">' .
-                 '<div class="card-section" id = "petstats">' .
+                 '<div class="card-section">' .
                  '<p>Species: ' . $species . '</p>' .
                  '<p>Color: ' . $color . '</p>' .
                  '<p>Gender: ' . $gender . '</p>' .
