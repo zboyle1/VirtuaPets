@@ -1,6 +1,6 @@
 const pets = "/~zboyle1/ajax/petsajax.php";
 const account = "/~zboyle1/ajax/loginajax.php";
-const inventory = "/~zboyle1/ajax/inventoryajax.php";
+const items = "/~zboyle1/ajax/itemsajax.php";
 
 // Login functions
 
@@ -15,6 +15,7 @@ function login() {
                 window.location.href = "/~zboyle1/index.php";
             } else {
                 err = "Invalid login";
+
                 $("#message").html(err);
                 $("#message").css("display", "block");
             }
@@ -43,19 +44,22 @@ function signup() {
         $.post(account, {"cmd": "signup", "newuser": newuser, "newpass": newpass, "dob": dob}, function(data) {
             if(data == '0') {
                 err = "Invalid birthday input";
+
             } else if(data == '1') {
                 err = "Username taken";
+
             } else if(data == '2') {
                 err = "Signup failed";
+
             } else if(data == '3') {
                 window.location.href = "/~zboyle1/index.php";
+
             } else {
                 err = "Signup failed";
             }
             
             $("#message").html(err);
             $("#message").css("display", "block");
-            console.log(data);
         });
         return(false);
     }
@@ -67,6 +71,7 @@ function showuser(user) {
     $.post(account, {"cmd": "show", "user": user}, function(data) {
         if(data == '0') {
             err = "Could not find profile";
+
             $("#message").html(err);
             $("#message").css("display", "block");
         } else {
@@ -76,12 +81,34 @@ function showuser(user) {
     return(false);
 }
 
-/*
-function buyitem() {
-    
+function showitems() {
+    $.post(items, {"cmd": "show"}, function(data) {
+        if(data == '0') {
+            err = "Trouble loading items";
+            
+            $("#message").css("display", "block");
+        } else {
+            $("#content").append(data);
+        }
+    });
+    return(false);
 }
 
-function showitems() {
+function buyitem(id) {
+    $.post(items, {"cmd": "buy", "id": id}, function(data){
+        if(data == 0) {
+            err = "Purchase failed. Please try again.";
+
+            $("#message").html(err);
+            $("#message").css("display", "block");
+        } else {
+            
+        }
+    });
+}
+
+/*
+function showuserinv(){
 
 }
 

@@ -4,14 +4,25 @@
     include '../footer.php';
 ?>
     <div id = "content" class = "grid-x grid-padding-x grid-margin-x">
-    <div class = "cell">
-            <!-- show all shop items -->
+        <div class = "cell">
+            <h3>Item shop</h3>
+        </div>
+
+        <div class = "cell align-self-center">
+            <img src = "/~zboyle1/assets/petimg/petplaceholder.png">
+            <p class="lead">Welcome to the shop!</p>
+        </div>
+        
+        <!--<div class = "cell" id = "shopinv"> -->
             <!-- when an item is clicked, show popup asking if user wants to buy -->
-            <!-- make ajax request to find users gold amount -->
             <!-- if not enough, send error -->
             <!-- if enough, subtract item amount from user gold -->
-</div>
-</div>
+        <!-- </div> -->
+    </div>
+
+<script>
+    showitems();
+</script>
 <?php
     send_footer();
 ?>
