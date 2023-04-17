@@ -125,7 +125,7 @@ function createpet(user,id) {
     color = $("#color").val();
     gender = $('input[name=gender]:checked').val();
 
-    dest = "/~zboyle1/places/profile.php?user={" + user + "}";
+    dest = "/~zboyle1/places/profile.php?user=" + user;
 
     $.post(pets, {"cmd": "create", "id": id, "petname": petname, "species": species, "color": color, "gender": gender}, function(data) {
         if(data == '1') {
@@ -139,8 +139,8 @@ function createpet(user,id) {
     return(false);
 }
 
-function showpet(id) {
-    $.post(pets, {"cmd": "show", "id": id}, function(data) {
+function showpet(user) {
+    $.post(pets, {"cmd": "show", "user": user}, function(data) {
         $("#content").append(data);
     });
     return (false);

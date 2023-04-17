@@ -17,7 +17,7 @@ function createpet() {
     $species = $_POST['species'];
     $color = $_POST['color'];
     $gender = $_POST['gender'];
-    $curruser = $_SESSION['userid'];
+    $curruser = $_POST['id'];
     
     global $conn;
 
@@ -43,7 +43,18 @@ function createpet() {
 function showpet() {
     global $conn;
 
-    $id = $_POST['id'];
+    $user = $_POST['user'];
+
+    $selectid = "SELECT id FROM users WHERE username ='$user'";
+    $result = $conn->query($selectid);
+
+    if(!$result) {
+        echo '<div class = "cell large-8">'.
+             '<div class = "callout alert">User has no pets!</div>'.
+             '</div>';
+    }
+
+    $id = mysqli_fetch_assoc($result);
     
     $select = "SELECT * FROM pets WHERE user_id = $id";
     $result = $conn->query($select);
@@ -81,27 +92,68 @@ function showpet() {
     }
 }
 
-/*
-
 // Active pet functions
 
-funtion showactive() {
+function showactive() {
+    global $conn;
 
+    $user = $_COOKIE['user'];
+
+    $selectpet = "SELECT pet_id FROM users WHERE username = '$user';";
+    $result = $conn->query($selectpet);
+
+    if(!$result) {
+        echo '0';
+    }
+
+    $petid = mysqli_fetch_assoc($result);
+
+    $sql = "SELECT * FROM pets WHERE pet_id = $petid;";
+    $result = $conn->query($sql);
+
+    if(!$result) {
+        echo '0';
+    }
+
+    $row = mysqli_fetch_array($result);
+    
+    $petname = $row["pet_name"];
+    $gender = $row["gender"];
+    $species = $row["species"];
+    $color = $row["color"];
+    $birthdate = $row["created"];
+
+    $age = date_diff(date_create($birthdate), date_create('now'))->d;
 }
 
 function makeactive($petname) {
+    global $conn;
 
+    $user = $_COOKIE['user'];
+
+    $selectid = "SELECT pet_id FROM pets WHERE petname = '$petname';";
+    $result = $conn->query($selectid);
+
+    if(!$result) {
+        echo '0';
+    }
+
+    $petid = mysqli_fetch_assoc($result);
+
+    $update = "UPDATE users SET ative_pet = $petid WHERE username = '$user';";
+    $result = $conn->query($update);
+
+    if(!$result){
+        echo '0';
+    } else {
+        echo '1';
+    }
 }
 
-function changeactive() {
-
-}
-
+/*
 function itempet() {
 
 }
-
-
 */
 
 $cmd = $_POST['cmd'];
@@ -110,6 +162,8 @@ if($cmd == 'create') {
     createpet();
 } else if ($cmd == 'show') {
     showpet();
+} else if ($cmd == 'active') {
+    makeactive($_POST['petname']);
 }
 
 mysqli_close($conn);

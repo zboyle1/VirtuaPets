@@ -2,6 +2,7 @@
     $page = "Create a pet";
 	include '../header.php';
     include '../footer.php';
+    $user = $_COOKIE['user'];
 ?>
 <div id = "content" class = "grid-x grid-padding-x grid-margin-x">
     <div class = "cell">
@@ -13,7 +14,7 @@
     </div>
 
     <div class = "cell small-7 medium-8 large-8">
-        <form onsubmit="return(createpet(<?php echo $user ?>, <?php echo $_SESSION['userid']?>))">
+        <form onsubmit="return(createpet(<?php echo '\'' . $user . '\''?>, <?php echo $_SESSION['userid']?>))">
 		    <label>Pet name:
                 <input type="text" id="petname">
             </label>
