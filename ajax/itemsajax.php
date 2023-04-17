@@ -26,8 +26,7 @@ function showallitems() {
             echo '<div class = "cell large-3">' .
                  '<a onclick = "buyconfirm(\'' . $id . '\', \'' . $itemname . '\', \'' . $price . '\', \'' . $gold . '\')">' .
                  '<div class = "card" style = "width: 150px;" id = "items">' .
-                 //'<img src="/~zboyle1/assets/itemimg/' . $id . '.png">' .
-                 '<img src="/~zboyle1/assets/itemimg/itemplaceholder.png" />' .
+                 '<img src="/~zboyle1/assets/itemimg/' . $id . '.png">' .
                  '<div class="card-section" text-align = "center">' .
                  '<p><b>' . $itemname . '</b></p>' .
                  '<p>' . $price . ' Gold</p>' .
