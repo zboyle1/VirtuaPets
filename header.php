@@ -1,6 +1,7 @@
 <?php
 
 include 'functions.php';
+include 'petsidebar.php';
 
 if(session_status() == PHP_SESSION_NONE) {
     startsession();
@@ -48,6 +49,9 @@ function user_nav($user) {
     </head>
     
     <body>
+<?php
+        activepet();
+?>
         <div class = "grid-container">
         <div class = "grid-x grid-padding-x">
            <div id ="logo" class = "cell">

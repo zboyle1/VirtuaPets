@@ -100,20 +100,20 @@ function showactive() {
 
     $user = $_COOKIE['user'];
 
-    $selectpet = "SELECT pet_id FROM users WHERE username = '$user';";
+    $selectpet = "SELECT active_pet FROM users WHERE username = '$user';";
     $result = $conn->query($selectpet);
 
-    if(mysqli_num_rows($result) == 0) {
-        echo '0';
-    }
-
-    $petid = mysqli_fetch_assoc($result);
+    $row = mysqli_fetch_assoc($result);
+    $petid = $row['active_pet'];
 
     $sql = "SELECT * FROM pets WHERE pet_id = $petid;";
     $result = $conn->query($sql);
 
     if(mysqli_num_rows($result) == 0) {
-        echo '0';
+        echo '<div class = "cell large-8">'.
+             '<div class = "callout alert">You have no pets!</div>'.
+             '</div>';
+        return;
     }
 
     $row = mysqli_fetch_array($result);
@@ -125,6 +125,23 @@ function showactive() {
     $birthdate = $row["created"];
 
     $age = date_diff(date_create($birthdate), date_create('now'))->d;
+
+    echo '<div class="card" style="width: 150px;" id="petstats">' .
+         '<div class="card-divider">' .
+         '<h4>' . $petname . '</h4>' .
+         '</div>' .
+         //'<img src="/~zboyle1/assets/petimg/' . $species . '/' . $color . '.png">' .
+         '<img src="/~zboyle1/assets/petimg/petplaceholder.png">' .
+         '<div class="card-section">' .
+         '<p>Species: ' . $species . '</p>' .
+         '<p>Color: ' . $color . '</p>' .
+         '<p>Gender: ' . $gender . '</p>' .
+         '<p>Age: ' . $age . ' days old</p>' .
+         //'<p> Hunger: ' . $hunger . '</p>' .
+         //'<p> Joy: ' . $joy . '</p>' .
+         '</div>'.
+         '</div>'.
+         '</div>';
 }
 
 function makeactive($petname) {
@@ -164,7 +181,9 @@ if($cmd == 'create') {
     createpet();
 } else if ($cmd == 'show') {
     showpet();
-} else if ($cmd == 'active') {
+} else if($cmd == 'active') {
+    showactive();
+} else if ($cmd == 'mkactive') {
     makeactive($_POST['petname']);
 }
 

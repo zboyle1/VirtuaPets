@@ -155,6 +155,13 @@ function showpet(user) {
     return (false);
 }
 
+function showactive() {
+    $.post(pets, {"cmd": "active"}, function(data) {
+        $("#active").append(data);
+    });
+    return (false);
+}
+
 /*
 function feedpet() {
     petname = $("#petname").val();
