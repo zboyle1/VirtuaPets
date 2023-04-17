@@ -39,4 +39,5 @@ function set_usersession() {
     $_SESSION['userid'] = $row['id'];
     $_SESSION['user'] = $row['username'];
     $_SESSION['gold'] = $row['gold'];
+    $_COOKIE['gold'] = $row['gold'];
 }
