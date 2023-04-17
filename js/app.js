@@ -39,7 +39,9 @@ function updatepetphoto() {
 }
 
 function buyconfirm(id, itemname, price, gold) {
-    console.log(id, price, gold);
+    price = parseInt(price);
+    gold = parseInt(gold);
+    id = parseInt(id);
 
     if (gold < price) {
         need = price - gold;
@@ -54,7 +56,7 @@ function buyconfirm(id, itemname, price, gold) {
             content: 'Are you sure you want to buy ' + itemname + ' for ' + price + ' gold?',
             buttons: {
                 confirm: function () {
-                    buyitem(id, price);
+                    buyitem(id, price, gold);
                 },
                 cancel: function () {
                     $.alert('Purchase canceled!');

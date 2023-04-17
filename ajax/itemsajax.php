@@ -21,10 +21,10 @@ function showallitems() {
             $id = $row["id"];
             $itemname = $row["item_name"];
             $price = $row["price"];
-            $gold = $_SESSION["gold"];
+            $gold = $_COOKIE["gold"];
 
             echo '<div class = "cell large-3">' .
-                 '<a onclick = "buyconfirm(\'' . $id .', \'' . $itemname . '\', ' . $price . ', ' . $_SESSION["gold"] . ')">' .
+                 '<a onclick = "buyconfirm(\'' . $id . '\', \'' . $itemname . '\', \'' . $price . '\', \'' . $gold . '\')">' .
                  '<div class = "card" style = "width: 150px;" id = "items">' .
                  //'<img src="/~zboyle1/assets/itemimg/' . $id . '.png">' .
                  '<img src="/~zboyle1/assets/itemimg/itemplaceholder.png" />' .
@@ -41,28 +41,62 @@ function showallitems() {
 }
 
 function buyitem() {
+
+    // Variables
     global $conn;
-    
-    $newgold = $_POST["price"] - $_SESSION["gold"];
 
-    $userid = $_SESSION["userid"];
-    $itemid = $_POST["itemid"];
+    $user = $_COOKIE["user"];
+    $itemid = $_POST["id"];
 
-    $update = "UPDATE users SET gold = $newgold WHERE id = 1";
-    $result = $conn->query($update);
+    $newgold = $_POST["gold"] - $_POST["price"];
 
+    // Find userid
+    $select = "SELECT id FROM users WHERE username = '$user'";
+    $result = $conn->query($select);
+
+    $row = mysqli_fetch_assoc($result);
+    $userid = $row['id'];
+
+    // Check if user has item
+    $select = "SELECT quantity FROM inventory WHERE user_id = $userid AND item_id = $itemid;";
+    $result = $conn->query($select);
+
+    // If not, try to add item
     if(mysqli_num_rows($result) == 0) {
+
+        $insert = "INSERT INTO inventory (user_id, item_id) VALUES ($userid, $itemid);";
+        $result = $conn->query($insert);
+
+        // Display error if cannot add
+        if(mysqli_num_rows($result) == 0) {
+            echo '0';
+            return;
+        }
+    } else {
+        // Add one to quantity of item
+        $row = mysqli_fetch_assoc($result);
+        $quantity = $row['quantity'];
+        $quantity = $quantity + 1;
+
+        // Update item quantity
+        $update = "UPDATE inventory SET quantity = $quantity WHERE user_id = $userid AND item_id = $itemid;";
+
+        // Return error if unable
+        if($result = $conn->query($update) === FALSE) {
+            echo '0';
+            return;
+        }
+    }
+
+    // Update gold amount if purchase went through
+    $update = "UPDATE users SET gold = $newgold WHERE id = $userid";
+    if($result = $conn->query($update) === FALSE) {
         echo '0';
+        return;
     }
 
     $_SESSION["gold"] = $newgold;
-
-    $insert = "INSERT INTO inventory VALUES ($userid, $itemid);";
-    $result = $conn->query($insert);
-
-    if(mysqli_num_rows($result) == 0) {
-        echo '0';
-    }
+    setcookie("gold", $newgold, time() + (86400 * 30), "/");
 
     echo '1';
 }

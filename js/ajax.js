@@ -94,15 +94,15 @@ function showitems() {
     return(false);
 }
 
-function buyitem(id, price) {
-    $.post(items, {"cmd": "buy", "id": id, "price": price}, function(data){
+function buyitem(id, price, gold) {
+    $.post(items, {"cmd": "buy", "id": id, "price": price, "gold": gold}, function(data){
         if(data == 0) {
             err = "Purchase failed. Please try again.";
 
             $("#message").html(err);
             $("#message").css("display", "block");
-        } else {
-            
+        } else if(data == 1) {
+            location.reload();
         }
     });
 }

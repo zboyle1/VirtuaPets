@@ -12,6 +12,10 @@
             <img src = "/~zboyle1/assets/petimg/petplaceholder.png">
             <p class="lead">Welcome to the shop!</p>
         </div>
+
+        <div class ="cell">
+            <div class = "callout alert" id = "message"></div>
+        </div>
     </div>
 
 <script>
