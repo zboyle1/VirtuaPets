@@ -94,8 +94,8 @@ function showitems() {
     return(false);
 }
 
-function buyitem(id) {
-    $.post(items, {"cmd": "buy", "id": id}, function(data){
+function buyitem(id, price) {
+    $.post(items, {"cmd": "buy", "id": id, "price": price}, function(data){
         if(data == 0) {
             err = "Purchase failed. Please try again.";
 
@@ -119,7 +119,7 @@ function useitem() {
 
 // Pet functions
 
-function createpet(user) {
+function createpet(user,id) {
     petname = $("#petname").val();
     species = $("#species").val();
     color = $("#color").val();
@@ -127,7 +127,7 @@ function createpet(user) {
 
     dest = "/~zboyle1/places/profile.php?user={" + user + "}";
 
-    $.post(pets, {"cmd": "create", "petname": petname, "species": species, "color": color, "gender": gender}, function(data) {
+    $.post(pets, {"cmd": "create", "id": id, "petname": petname, "species": species, "color": color, "gender": gender}, function(data) {
         if(data == '1') {
             window.location.href = dest;
         } else {
@@ -141,12 +141,7 @@ function createpet(user) {
 
 function showpet(id) {
     $.post(pets, {"cmd": "show", "id": id}, function(data) {
-        if(data == '0') {
-            $("#message").html(err);
-            $("#message").css("display", "block");
-        } else {
-            $("#petinfo").html(data);
-        }
+        $("#content").append(data);
     });
     return (false);
 }

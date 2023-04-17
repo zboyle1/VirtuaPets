@@ -22,7 +22,7 @@ function createpet() {
     global $conn;
 
     $insert = "INSERT INTO pets(user_id, pet_name, gender, species, color,  created, last_fed)
-                VALUES ($curruser, '$petname', '$gender', '$species', '$color', now(), now());";
+                VALUES ($curruser, '$petname', '$gender', '$species', '$color', curdate(), curdate());";
     $result = $conn->query($insert);
 
     $sql = "SELECT * FROM pets WHERE user_id = $curruser AND pet_name = '$petname';";
@@ -58,7 +58,8 @@ function showpet() {
 
             $age = date_diff(date_create($birthdate), date_create('now'))->d;
             
-            echo '<div class="card" style="width: 200px;" id="petstats">' .
+            echo '<div class = "cell large-2">'.
+                 '<div class="card" style="width: 150px;" id="petstats">' .
                  '<div class="card-divider">' .
                  '<h4>' . $petname . '</h4>' .
                  '</div>' .
@@ -70,10 +71,13 @@ function showpet() {
                  '<p>Gender: ' . $gender . '</p>' .
                  '<p>Age: ' . $age . ' days old</p>' .
                  '</div>'.
+                 '</div>'.
                  '</div>';
         }
     } else {
-        echo '0';
+        echo '<div class = "cell large-8">'.
+             '<div class = "callout alert">User has no pets!</div>'.
+             '</div>';
     }
 }
 

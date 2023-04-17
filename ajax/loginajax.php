@@ -60,7 +60,7 @@ function signup() {
         return;
     }
 
-    $insert = "INSERT INTO users (username, pass, birthdate, joindate) VALUES ('$user', '$pass','$dob', now());";
+    $insert = "INSERT INTO users (username, pass, birthdate, joindate) VALUES ('$user', '$pass','$dob', curdate());";
     $result = $conn->query($insert);
 
     $sql = "SELECT username FROM users WHERE username = '$user';";
