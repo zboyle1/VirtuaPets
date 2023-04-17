@@ -48,7 +48,7 @@ function showpet() {
     $selectid = "SELECT id FROM users WHERE username ='$user'";
     $result = $conn->query($selectid);
 
-    if(!$result) {
+    if(mysqli_num_rows($result) = 0) {
         echo '<div class = "cell large-8">'.
              '<div class = "callout alert">User has no pets!</div>'.
              '</div>';
@@ -102,7 +102,7 @@ function showactive() {
     $selectpet = "SELECT pet_id FROM users WHERE username = '$user';";
     $result = $conn->query($selectpet);
 
-    if(!$result) {
+    if(mysqli_num_rows($result) == 0) {
         echo '0';
     }
 
@@ -111,7 +111,7 @@ function showactive() {
     $sql = "SELECT * FROM pets WHERE pet_id = $petid;";
     $result = $conn->query($sql);
 
-    if(!$result) {
+    if(mysqli_num_rows($result) == 0) {
         echo '0';
     }
 
@@ -134,7 +134,7 @@ function makeactive($petname) {
     $selectid = "SELECT pet_id FROM pets WHERE petname = '$petname';";
     $result = $conn->query($selectid);
 
-    if(!$result) {
+    if(mysqli_num_rows($result) == 0) {
         echo '0';
     }
 
@@ -143,7 +143,7 @@ function makeactive($petname) {
     $update = "UPDATE users SET ative_pet = $petid WHERE username = '$user';";
     $result = $conn->query($update);
 
-    if(!$result){
+    if(mysqli_num_rows($result) == 0){
         echo '0';
     } else {
         echo '1';

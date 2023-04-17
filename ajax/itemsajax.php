@@ -51,7 +51,7 @@ function buyitem() {
     $update = "UPDATE users SET gold = $newgold WHERE id = 1";
     $result = $conn->query($update);
 
-    if(!$result) {
+    if(mysqli_num_rows($result) == 0) {
         echo '0';
     }
 
@@ -60,7 +60,7 @@ function buyitem() {
     $insert = "INSERT INTO inventory VALUES ($userid, $itemid);";
     $result = $conn->query($insert);
 
-    if(!$result) {
+    if(mysqli_num_rows($result) == 0) {
         echo '0';
     }
 
