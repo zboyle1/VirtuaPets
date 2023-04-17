@@ -12,12 +12,6 @@
             <img src = "/~zboyle1/assets/petimg/petplaceholder.png">
             <p class="lead">Welcome to the shop!</p>
         </div>
-        
-        <!--<div class = "cell" id = "shopinv"> -->
-            <!-- when an item is clicked, show popup asking if user wants to buy -->
-            <!-- if not enough, send error -->
-            <!-- if enough, subtract item amount from user gold -->
-        <!-- </div> -->
     </div>
 
 <script>
