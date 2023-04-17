@@ -21,9 +21,9 @@
 
 <script>
     user = "<?php echo $user ?>"
-    id = "<?php echo $_SESSION['userid']?>";
+
     showuser(user);
-    showpet(id);
+    showpet(user);
 </script>
 <?php
     send_footer();
