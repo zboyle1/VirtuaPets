@@ -107,11 +107,20 @@ function buyitem(id, price, gold) {
     });
 }
 
-/*
 function showuserinv(){
+    $.post(items, {"cmd": "inv"}, function(data) {
+        if(data == 0) {
+            err = "You have no items!";
 
+            $("#message").html(err);
+            $("#message").css("display", "block");
+        } else {
+            $("#content").append(data);
+        }
+    });
 }
 
+/*
 function useitem() {
 
 }

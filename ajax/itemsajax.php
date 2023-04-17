@@ -10,6 +10,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
+// Shop functions
+
 function showallitems() {
     global $conn;
 
@@ -100,13 +102,54 @@ function buyitem() {
     echo '1';
 }
 
+// Show user inventory
+function displayinv() {
+    global $conn;
+
+    $user = $_COOKIE['user'];
+
+    $selectid = "SELECT id FROM users WHERE username = '$user';";
+    $result = $conn->query($selectid);
+
+    $row = mysqli_fetch_assoc($result);
+    $userid = $row['id'];
+
+    $select = "SELECT * FROM inventory JOIN itmes ON inventory.item_id = itmes.id WHERE user_id = $userid";
+    $result = $conn->query($select);
+
+    if (mysqli_num_rows($result) > 0) {
+		while($row = mysqli_fetch_assoc($result)) {
+            $id = $row["id"];
+            $itemname = $row["item_name"];
+            $price = $row["price"];
+            $quantity = $row["quantity"];
+            $gold = $_COOKIE["gold"];
+
+            echo '<div class = "cell large-3">' .
+                 //'<a onclick = "buyconfirm(\'' . $id . '\', \'' . $itemname . '\', \'' . $price . '\', \'' . $gold . '\')">' .
+                 '<div class = "card" style = "width: 150px;" id = "items">' .
+                 '<img src="/~zboyle1/assets/itemimg/' . $id . '.png">' .
+                 '<div class="card-section" text-align = "center">' .
+                 '<p><b>' . $itemname . '</b></p>' .
+                 '<p>' . $quantity . ' ct</p>' .
+                 '</div>' .
+                 '</div>' .
+                 '</div>';
+        }
+    } else {
+        echo '0';
+    }
+}
+
+
+
 // Execute functions based on command
 $cmd = $_POST['cmd'];
 
 if($cmd == 'show') {
     showallitems();
-} else if ($cmd == 'showinv') {
-    //showuserinv();
+} else if ($cmd == 'inv') {
+    displayinv();
 } else if ($cmd == 'buy') {
     buyitem();
 }
