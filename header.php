@@ -44,10 +44,9 @@ function user_nav($user) {
         <script src = "/~zboyle1/js/vendor/foundation.js"></script>
         <script src = "/~zboyle1/jqueryconfirm/jquery-confirm.min.js"></script>
         <script src = "/~zboyle1/js/ajax.js"></script>
-        <script src = "/~zboyle1/js/app.js"></script>
-
-                
+        <script src = "/~zboyle1/js/app.js"></script>            
     </head>
+    
     <body>
         <div class = "grid-container">
         <div class = "grid-x grid-padding-x">
