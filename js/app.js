@@ -37,3 +37,29 @@ function updatepetphoto() {
 
     document.getElementById("newpet").src = imgdest;
 }
+
+function buyconfirm(id, itemname, price, gold) {
+    console.log(id, price, gold);
+
+    if (gold < price) {
+        need = price - gold;
+        
+        $.alert({
+            title: 'Buy item',
+            content: 'You need ' + need + ' more gold for this purchase',
+        });
+    } else {
+        $.confirm({
+            title: 'Buy item',
+            content: 'Are you sure you want to buy ' + itemname + ' for ' + price + ' gold?',
+            buttons: {
+                confirm: function () {
+                    buyitem(id, price);
+                },
+                cancel: function () {
+                    $.alert('Purchase canceled!');
+                }
+            }
+        });
+    }
+}

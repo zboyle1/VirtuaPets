@@ -21,13 +21,15 @@ function showallitems() {
             $id = $row["id"];
             $itemname = $row["item_name"];
             $price = $row["price"];
+            $gold = $_SESSION["gold"];
 
-            echo '<div class = "cell large-3" onclick = "buyitem(' . $id . ')">' .
+            echo '<div class = "cell large-3">' .
+                 '<a onclick = "buyconfirm(\'' . $id .', \'' . $itemname . '\', ' . $price . ', ' . $_SESSION["gold"] . ')">' .
                  '<div class = "card" style = "width: 150px;" id = "items">' .
                  //'<img src="/~zboyle1/assets/itemimg/' . $id . '.png">' .
-                 '<img src="/~zboyle1/assets/itemimg/itemplaceholder.png">' .
+                 '<img src="/~zboyle1/assets/itemimg/itemplaceholder.png" />' .
                  '<div class="card-section" text-align = "center">' .
-                 '<p class = "h6">' . $itemname . '</p>' .
+                 '<p><b>' . $itemname . '</b></p>' .
                  '<p>' . $price . ' Gold</p>' .
                  '</div>' .
                  '</div>' .
@@ -39,8 +41,32 @@ function showallitems() {
 }
 
 function buyitem() {
+    global $conn;
+    
+    $newgold = $_POST["price"] - $_SESSION["gold"];
 
+    $userid = $_SESSION["userid"];
+    $itemid = $_POST["itemid"];
+
+    $update = "UPDATE users SET gold = $newgold WHERE id = 1";
+    $result = $conn->query($update);
+
+    if(!$result) {
+        echo '0';
+    }
+
+    $_SESSION["gold"] = $newgold;
+
+    $insert = "INSERT INTO inventory VALUES ($userid, $itemid);";
+    $result = $conn->query($insert);
+
+    if(!$result) {
+        echo '0';
+    }
+
+    echo '1';
 }
+
 // Execute functions based on command
 $cmd = $_POST['cmd'];
 
