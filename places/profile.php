@@ -4,18 +4,19 @@
     include '../footer.php';
     $user = $_GET['user'];
 ?>
-<div id = "content" class = "grid-x grid-padding-x grid-margin-x">
+<div class="cell medium-10 large-10">
+    <div class="grid-x grid-padding-x" id= "pets">
+        <div class="cell large-4" id="pagetitle">
+            <h2><?php echo $user ?>'s profile</h2>      
+        </div>
     
-    <div class = "cell large-4">
-        <h2><?php echo $user ?>'s profile</h2>      
-    </div>
-    
-    <div class = "cell large-8">
-        <h2>Pets</h2>      
-    </div>
+        <div class = "cell large-8" id="pagetitle">
+            <h2>Pets</h2>      
+        </div>
 
-    <div class = "cell large-4 align-self-middle" id = "userinfo">
+        <div class = "cell large-4 align-self-middle" id = "userinfo">
 
+        </div>
     </div>
 </div>
 

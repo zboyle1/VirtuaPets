@@ -150,7 +150,7 @@ function createpet(user,id) {
 
 function showpet(user) {
     $.post(pets, {"cmd": "show", "user": user}, function(data) {
-        $("#content").append(data);
+        $("#pets").append(data);
     });
     return (false);
 }
