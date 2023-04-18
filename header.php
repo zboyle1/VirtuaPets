@@ -55,12 +55,12 @@ function user_nav($user) {
         <div class="grid-container xy-grid">
             <div class="grid-x grid-padding-x">
                 <div id="logo" class="cell">
-                    <h1>Logo</h1>
+                    <h1>Pet site!</h1>
                 </div>
             </div>
 
             <div id="content" class="grid-x grid-margin-x">
 
-                <div class="cell large-2 medium-2 small-2 cell-auto-height">
+                <div id = "nav" sclass="cell large-2 medium-2 small-2 cell-auto-height">
                     <?php !$_SESSION['user'] ? guest_nav() : user_nav($user); ?>
                 </div>

@@ -1,27 +1,50 @@
 body {
-    background: #c2c2c2;
+    background: #e2faf3;
+}
+
+a{
+    color:#418975;
+}
+
+a:hover{
+    color: #162E27;
 }
 
 #logo {
-    background-color: #8a8a8a;
-
-}
-
-#welcome {
-    background-color: #8a8a8a;
+    background-color: #6de4c3;
+    color: #162E27;
 
 }
 
 #nav {
-    background-color: #8a8a8a;
+    background-color: #e2faf3;
 
 }
 
 #content {
     background-color: #FFF;
+    padding-top: 0.5em;
 }
 #footer {
-    background-color: #8a8a8a;
+    padding-top: 0.5em;
+    background-color: #6de4c3;
+}
+
+.card {
+    border-color: #6de4c3;
+}
+
+div.card-divider {
+    background-color: #99ecd5;
+    color:#162E27;
+}
+
+.callout {
+    border-color: #6de4c3;
+}
+
+.subheader {
+    color:#8ae9cf;
 }
 
 #message {
