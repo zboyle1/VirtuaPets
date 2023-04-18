@@ -88,7 +88,7 @@ function showitems() {
             
             $("#message").css("display", "block");
         } else {
-            $("#content").append(data);
+            $("#shop").append(data);
         }
     });
     return(false);
@@ -115,7 +115,7 @@ function showuserinv(){
             $("#message").html(err);
             $("#message").css("display", "block");
         } else {
-            $("#content").append(data);
+            $("#inv").append(data);
         }
     });
 }
