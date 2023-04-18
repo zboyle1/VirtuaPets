@@ -18,7 +18,7 @@
             <div class="callout">
                 <h4 class="subheader">What I'd like to add</h4>
                 <p style="margin-left: 1em;">
-                    Simple games, more interactions with pets and more pets and colors, a chat function (in production, this would have moderation.)
+                    Simple games, more interactions with pets and more pets and colors, a chat function (in production, this would have moderation), option to change active pet
                 </p>
             </div>
         </div>

@@ -51,7 +51,6 @@ function user_nav($user) {
         <script src="/~zboyle1/js/ajax.js"></script>
         <script src="/~zboyle1/js/app.js"></script>            
     </head>
-    
     <body>
         <div class="grid-container xy-grid">
             <div class="grid-x grid-padding-x">
