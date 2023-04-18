@@ -3,24 +3,39 @@
 	include '../header.php';
     include '../footer.php';
 ?>
-<div id = "content" class = "grid-x grid-padding-x grid-margin-x">
-    <div class="cell large-8 medium-6 small-4">  
-        <form onsubmit="return(login())">
-		    <label>Username
-                <input type="text" id="user">
-            </label>
-		
-            <label>Password
-                <input type="text" id="pass">
-            </label>
+<div class="cell medium-10 large-10">
+    <div class="grid-x grid-padding-x" id="inv">
+        <div class="cell" id="pagetitle">
+            <h3>Login</h3>
+        </div>
+    
+        <div class="cell">  
+            <form onsubmit="return(login())">
+		        <label>Username
+                    <input type="text" id="user" required>
+                </label>
+
+                <span class="form-error">
+                    You need a username to login!
+                </span>
+
+                <label>Password
+                    <input type="password" id="pass">
+                </label>
+
+                <span class="form-error">
+                    You need a password to login!
+                </span>
         
-            <div class = "callout alert" id="message"></div>
+                <div class = "callout alert" id="message"></div>
             
-            <button class = "submit button">Login</button>
-            <a href = "/~zboyle1/places/signup.php" class="button secondary">Sign up</a>
-	    </form>
+                <button class = "submit button">Login</button>
+                <a href = "/~zboyle1/places/signup.php" class="button secondary">Sign up</a>
+	        </form>
+        </div>
     </div>
 </div>
+
 <?php
     send_footer();
 ?>
