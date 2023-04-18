@@ -1,71 +1,65 @@
 <?php
-
 include 'functions.php';
 include 'petsidebar.php';
 
-if(session_status() == PHP_SESSION_NONE) {
+if (session_status() == PHP_SESSION_NONE) {
     startsession();
 }
+
 function guest_nav() {
-    echo <<< GUESTLINKS
-    <li><a href = "/~zboyle1/places/login.php">Login</a>
-    <li><a href = "/~zboyle1/places/signup.php">Sign Up</a>
-    </div>
-    </div>
-    GUESTLINKS;
+    echo <<<GUESTLINKS
+    <ul class="vertical menu">
+    <li><a href="/~zboyle1/index.php">Home</a></li>
+    <li><a href="/~zboyle1/places/login.php">Login</a></li>
+    <li><a href="/~zboyle1/places/signup.php">Sign Up</a></li>
+    </ul>
+GUESTLINKS;
 }
 
 function user_nav($user) {
-    echo <<< USERLINKS
-    <li><a href = "/~zboyle1/places/profile.php?user={$_SESSION['user']}">My Pets</a>
-    <li><a href = "/~zboyle1/places/inventory.php">Inventory</a>
-    <li><a href = "/~zboyle1/places/createpet.php">Create a Pet</a>
-    <li><a href = "/~zboyle1/places/shop.php">Shop</a>
-    <li><a onclick = "logout()">Logout</a>
+    echo <<<USERLINKS
+    <p>Gold: {$_SESSION['gold']} </p>
+    <ul class="vertical menu">
+    <li><a href="/~zboyle1/index.php">Home</a></li>
+    <li><a href="/~zboyle1/places/profile.php?user={$_SESSION['user']}">My Pets</a></li>
+    <li><a href="/~zboyle1/places/inventory.php">Inventory</a></li>
+    <li><a href="/~zboyle1/places/createpet.php">Create a Pet</a></li>
+    <li><a href="/~zboyle1/places/shop.php">Shop</a></li>
+    <li><a onclick="logout()">Logout</a></li>
     </ul>
-    </div>
-    </div>
     USERLINKS;
-
-    include '/~zboyle1/petsidebar.php';
+    activepet();
 }
 
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Virtual Pets</title>
 
-        <link rel = "stylesheet" href = "/~zboyle1/css/foundation.css">
-        <link rel = "stylesheet" href = "/~zboyle1/css/app.css">
-        <link rel = "stylesheet" href="/~zboyle1/jqueryconfirm/jquery-confirm.min.css">
+        <link rel="stylesheet" href="/~zboyle1/css/foundation.css">
+        <link rel="stylesheet" href="/~zboyle1/css/app.css">
+        <link rel="stylesheet" href="/~zboyle1/jqueryconfirm/jquery-confirm.min.css">
 
-        <script src = "/~zboyle1/js/vendor/jquery.js"></script>
-        <script src = "/~zboyle1/js/vendor/what-input.js"></script>
-        <script src = "/~zboyle1/js/vendor/foundation.js"></script>
-        <script src = "/~zboyle1/jqueryconfirm/jquery-confirm.min.js"></script>
-        <script src = "/~zboyle1/js/ajax.js"></script>
-        <script src = "/~zboyle1/js/app.js"></script>            
+        <script src="/~zboyle1/js/vendor/jquery.js"></script>
+        <script src="/~zboyle1/js/vendor/what-input.js"></script>
+        <script src="/~zboyle1/js/vendor/foundation.js"></script>
+        <script src="/~zboyle1/jqueryconfirm/jquery-confirm.min.js"></script>
+        <script src="/~zboyle1/js/ajax.js"></script>
+        <script src="/~zboyle1/js/app.js"></script>            
     </head>
     
     <body>
-<?php
-        activepet();
-?>
-        <div class = "grid-container">
-        <div class = "grid-x grid-padding-x">
-           <div id ="logo" class = "cell">
-                <h1>Logo</h1>
+        <div class="grid-container xy-grid">
+            <div class="grid-x grid-padding-x">
+                <div id="logo" class="cell">
+                    <h1>Logo</h1>
+                </div>
             </div>
-        </div>
-        <div class = "grid-x grid-padding-x">
-            <div id = "welcome" class = "large-4 cell">
-                <?php echo !$_SESSION['user'] ? "" : "Gold:". $_SESSION['gold']; ?>
-            </div>
-            <div id = "nav" class = "cell auto">
-                <ul class = "menu align-right">
-                <li><a href = "/~zboyle1/index.php">Home</a>
-<?php
-    
-    !$_SESSION['user'] ? guest_nav() : user_nav($user)
-?>
+
+            <div id="content" class="grid-x grid-margin-x">
+
+                <div class="cell large-2 cell-auto-height hide-for-small-only">
+                    <?php !$_SESSION['user'] ? guest_nav() : user_nav($user); ?>
+                </div>

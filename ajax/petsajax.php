@@ -126,8 +126,7 @@ function showactive() {
 
     $age = date_diff(date_create($birthdate), date_create('now'))->d;
 
-    echo '<div class="card" style="width: 150px;" id="petstats">' .
-         '<div class="card-divider">' .
+    echo '<div class="card-divider">' .
          '<h4>' . $petname . '</h4>' .
          '</div>' .
          //'<img src="/~zboyle1/assets/petimg/' . $species . '/' . $color . '.png">' .
@@ -139,8 +138,6 @@ function showactive() {
          '<p>Age: ' . $age . ' days old</p>' .
          //'<p> Hunger: ' . $hunger . '</p>' .
          //'<p> Joy: ' . $joy . '</p>' .
-         '</div>'.
-         '</div>'.
          '</div>';
 }
 
