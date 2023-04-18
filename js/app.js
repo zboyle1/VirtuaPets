@@ -38,6 +38,23 @@ function updatepetphoto() {
     document.getElementById("newpet").src = imgdest;
 }
 
+function useanitem(id, itemname) {
+    id = parseInt(id);
+
+    $.confirm({
+        title: 'Use item',
+        content: 'Are you sure you want to use ' + itemname + '?',
+        buttons: {
+            confirm: function () {
+                useitem(id);
+            },
+            cancel: function () {
+                $.alert('You wont use' + itemname);
+            }
+        }
+    });
+}
+
 function buyconfirm(id, itemname, price, gold) {
     price = parseInt(price);
     gold = parseInt(gold);

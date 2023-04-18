@@ -168,11 +168,102 @@ function makeactive($petname) {
     }
 }
 
-/*
-function itempet() {
 
+function itempet() {
+    global $conn;
+
+    $user = $_COOKIE['user'];
+    $id = $_POST['id'];
+    $hunger = $_COOKIE['hunger'];
+    $joy = $_COOKIE['joy'];
+
+    $selectitem = "SELECT * FROM itmes WHERE id = '$id'";
+    $result = $conn->query($selectitem);
+    
+    $row = mysqli_fetch_assoc($result);
+
+    $itemtype = $row['item_type'];
+    $pettype = $row['pet_type'];
+    $val = $row['restoreval'];
+
+    $selectpet = "SELECT id, active_pet FROM users WHERE username = '$user';";
+    $result = $conn->query($selectpet);
+
+    $row = mysqli_fetch_assoc($result);
+    $petid = $row['active_pet'];
+    $userid = $row['id'];
+
+    $sql = "SELECT species FROM pets WHERE pet_id = $petid;";
+    $result = $conn->query($sql);
+
+    if(mysqli_num_rows($result) == 0) {
+        echo '<div class = "cell large-8">'.
+             '<div class = "callout alert">You have no pets!</div>'.
+             '</div>';
+        return;
+    }
+
+    $row = mysqli_fetch_array($result);
+    
+    $species = $row['species'];
+
+    if($species == $pettype || (($species == 'rabbit' || $species == 'ferret') && $pettype == 'small animal')) {
+        if ($itemtype == 'food') {
+            if($hunger == 10) {
+                echo 'Your pet is too full!';
+                return;
+            }
+
+            $newhunger = $hunger + $val;
+
+            if($newhunger > 10) {
+                $newhunger = 10;
+            }
+
+            setcookie("hunger", $newhunger, time() + (86400 * 30), "/");
+
+            $sql = "UPDATE pets SET last_fed = now() WHERE pet_id = $petid;";
+            $result = $conn->query($sql);
+
+        } else  if ($itemtype == 'toy') {
+            if($joy == 10) {
+                echo 'Your pet is too tired to play!';
+                return;
+            }
+
+            $newjoy = $joy + $val;
+            
+            if($newjoy > 10) {
+                $newjoy = 10;
+            }
+
+            setcookie("joy", $newjoy, time() + (86400 * 30), "/");
+
+            $sql = "UPDATE pets SET last_play = now() WHERE pet_id = $petid;";
+            $result = $conn->query($sql);
+        }
+
+        $select = "SELECT * FROM inventory WHERE user_id = $userid AND item_id = $id";
+        $result = $conn->query($select);
+
+        $row = mysqli_fetch_array($result);
+        $quantity = $row['quantity'];
+
+        if ($quantity > 1) {
+            $quantity = $quantity - 1;
+            $sql = "UPDATE inventory SET quantity = $quantity WHERE user_id = $userid AND item_id = $id";
+            $result = $conn->query($sql);
+        } else {
+            $sql = "DELETE FROM inventory WHERE user_id = $userid AND item_id = $id;";
+        }
+
+        echo '1' ;
+    } else {
+        echo 'Your pet dosn\'t want this item! Try using an item meant for your pet...';
+    }
 }
-*/
+
+//Execute functions
 
 $cmd = $_POST['cmd'];
 
@@ -184,6 +275,8 @@ if($cmd == 'create') {
     showactive();
 } else if ($cmd == 'mkactive') {
     makeactive($_POST['petname']);
+} else if($cmd == 'item') {
+    itempet();
 }
 
 mysqli_close($conn);

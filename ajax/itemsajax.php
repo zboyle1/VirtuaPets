@@ -126,7 +126,7 @@ function displayinv() {
             $gold = $_COOKIE["gold"];
 
             echo '<div class = "cell large-3">' .
-                 //'<a onclick = "buyconfirm(\'' . $id . '\', \'' . $itemname . '\', \'' . $price . '\', \'' . $gold . '\')">' .
+                 '<a onclick = "useanitem(\'' . $id . '\',\'' . $itemname . '\')">' .
                  '<div class = "card" style = "width: 150px;" id = "items">' .
                  '<img src="/~zboyle1/assets/itemimg/' . $id . '.png">' .
                  '<div class="card-section" text-align = "center">' .

@@ -120,11 +120,21 @@ function showuserinv(){
     });
 }
 
-/*
-function useitem() {
-
+function useitem(itemid) {
+    $.post(pets, {"cmd": "item", "id": itemid}, function(data){
+        if(data == 1) {
+            $.alert({
+                title: 'Yay!',
+                content: 'Success!',
+            });
+            location.reload();
+        } else {
+            $("#message").html(data);
+            $("#message").css("display", "block");
+        }
+    });
 }
-*/
+
 
 // Pet functions
 

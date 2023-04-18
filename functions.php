@@ -56,22 +56,23 @@ function setusersession() {
 
 function decay($val, $lastupdate) {
     // in case i wanna change later
-    $rate = 1;
+    $hours = time() - $lastupdate;
+    $days = floor($hours / (60 * 60 * 24));
+    $hours = $hours - $days * 60 * 60 * 24;
+    $sincelast = $hours / (60 * 60);
+    $newval = $val - $rate * $sincelast;
 
-    $sincelast = time() - $lastupdate;
-    $elapsedhours = $sincelast / (60 * 60);
-
-    $val = $val - ($rate * $elapsedhours);
-    if ($val < 0) {
-        $val = 0;
-    }
-
-    return $val;
+    return max(0, $newval);
 }
 
 
 function decaypetstats() {
     global $conn;
+
+    if($_COOKIE['hunger'] > $_SESSION['hunger'] || $_COOKIE['joy'] > $_SESSION['joy']) {
+        $_SESSION['hunger'] = $_COOKIE['hunger'];
+        $_SESSION['joy'] = $_COOKIE['joy'];
+    }
 
     $petid = $_SESSION['active'];
 
@@ -91,6 +92,9 @@ function decaypetstats() {
 
     $_SESSION['hunger'] = $hunger;
     $_SESSION['joy'] = $joy;
+
+    setcookie("hunger",$hunger,time() + (86400 * 30), "/");
+    setcookie("joy",$joy,time() + (86400 * 30), "/");
 
     mysqli_close($conn);
 }
