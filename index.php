@@ -18,8 +18,8 @@
             </p>
         </div>
 
-        <div class="cell large-4 medium-2">
-            <img src="/~zboyle1/assets/itemimg/itemplaceholder.png">
+        <div class="cell large-2 medium-2">
+            <img src="/~zboyle1/assets/petimg/frog/Green.png">
         </div>
 
         <div class="cell">
@@ -27,7 +27,7 @@
         </div>
 
         <div class="cell large-2 medium-2">
-            <img src="/~zboyle1/assets/itemimg/itemplaceholder.png">
+            <img src="/~zboyle1/assets/petimg/cat/Orange.png">
         </div>
 
         <div class="cell large-8 medium-10">

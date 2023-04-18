@@ -9,7 +9,6 @@
         </div>
 
         <div class = "cell align-self-center">
-            <img src = "/~zboyle1/assets/petimg/petplaceholder.png">
             <p class="lead">Welcome to the shop!</p>
         </div>
 

@@ -75,8 +75,7 @@ function showpet() {
                  '<div class="card-divider">' .
                  '<h4>' . $petname . '</h4>' .
                  '</div>' .
-                 //'<img src="/~zboyle1/assets/petimg/' . $species . '/' . $color . '.png">' .
-                 '<img src="/~zboyle1/assets/petimg/petplaceholder.png">' .
+                 '<img src="/~zboyle1/assets/petimg/' . $species . '/' . $color . '.png">' .
                  '<div class="card-section">' .
                  '<p>Species: ' . $species . '</p>' .
                  '<p>Color: ' . $color . '</p>' .
@@ -131,8 +130,7 @@ function showactive() {
     echo '<div class="card-divider">' .
          '<h4>' . $petname . '</h4>' .
          '</div>' .
-         //'<img src="/~zboyle1/assets/petimg/' . $species . '/' . $color . '.png">' .
-         '<img src="/~zboyle1/assets/petimg/petplaceholder.png">' .
+         '<img src="/~zboyle1/assets/petimg/' . $species . '/' . $color . '.png">' .
          '<div class="card-section">' .
          '<p>Species: ' . $species . '</p>' .
          '<p>Color: ' . $color . '</p>' .

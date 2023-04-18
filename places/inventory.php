@@ -9,7 +9,6 @@
         </div>
 
         <div class = "cell">
-            <img src = "/~zboyle1/assets/petimg/petplaceholder.png">
             <p>Play with, or feed your pet</p>
         </div>
 
