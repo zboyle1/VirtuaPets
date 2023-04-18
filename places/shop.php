@@ -1,10 +1,10 @@
 <?php
-    $page = "Shop";
 	include '../header.php';
     include '../footer.php';
 ?>
-    <div id = "content" class = "grid-x grid-padding-x grid-margin-x">
-        <div class = "cell">
+<div class="cell medium-10 large-10">
+    <div class="grid-x grid-padding-x" id="shop">
+        <div class="cell" id="pagetitle">
             <h3>Item shop</h3>
         </div>
 
@@ -17,6 +17,7 @@
             <div class = "callout alert" id = "message"></div>
         </div>
     </div>
+</div>
 
 <script>
     showitems();
