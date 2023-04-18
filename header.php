@@ -6,6 +6,8 @@ if (session_status() == PHP_SESSION_NONE) {
     startsession();
 }
 
+decaypetstats();
+
 function guest_nav() {
     echo <<<GUESTLINKS
     <ul class="vertical menu">

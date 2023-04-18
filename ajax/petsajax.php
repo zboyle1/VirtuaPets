@@ -99,6 +99,8 @@ function showactive() {
     global $conn;
 
     $user = $_COOKIE['user'];
+    $hunger = $_POST['hunger'];
+    $joy = $_POST['joy'];
 
     $selectpet = "SELECT active_pet FROM users WHERE username = '$user';";
     $result = $conn->query($selectpet);
@@ -135,9 +137,9 @@ function showactive() {
          '<p>Species: ' . $species . '</p>' .
          '<p>Color: ' . $color . '</p>' .
          '<p>Gender: ' . $gender . '</p>' .
-         '<p>Age: ' . $age . ' days old</p>' .
-         //'<p> Hunger: ' . $hunger . '</p>' .
-         //'<p> Joy: ' . $joy . '</p>' .
+         '<p>Age: ' . $age . ' days</p>' .
+         '<p> Hunger: ' . $hunger . '</p>' .
+         '<p> Joy: ' . $joy . '</p>' .
          '</div>';
 }
 

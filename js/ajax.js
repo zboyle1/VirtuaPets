@@ -155,8 +155,8 @@ function showpet(user) {
     return (false);
 }
 
-function showactive() {
-    $.post(pets, {"cmd": "active"}, function(data) {
+function showactive(hunger,joy) {
+    $.post(pets, {"cmd": "active", "hunger": hunger, "joy": joy}, function(data) {
         $("#active").append(data);
     });
     return (false);
