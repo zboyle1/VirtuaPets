@@ -26,7 +26,7 @@
             <h4 class="subheader">Explore and earn gold</h4>
         </div>
 
-        <div class="cell large-4 align-self-right">
+        <div class="cell large-2 align-self-right">
             <img src="/~zboyle1/assets/itemimg/itemplaceholder.png">
         </div>
 
