@@ -1,9 +1,8 @@
 <?php
 	include 'header.php';
     include 'footer.php';
-    
 ?>
-<div class="cell medium-9 large-10">
+<div class="cell medium-10 large-10">
     <div class="grid-x grid-padding-x">
         <div class="cell">
             <h3>Welcome <?php echo !$_SESSION['user'] ? "guest" : $_SESSION['user']; ?>!</h3>
