@@ -62,6 +62,6 @@ function user_nav($user) {
 
             <div id="content" class="grid-x grid-margin-x">
 
-                <div class="cell large-2 cell-auto-height hide-for-small-only">
+                <div class="cell large-2 medium-2 small-2 cell-auto-height">
                     <?php !$_SESSION['user'] ? guest_nav() : user_nav($user); ?>
                 </div>
