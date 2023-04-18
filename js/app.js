@@ -32,8 +32,7 @@ function updatepetphoto() {
     species = $("#species").val();
     color = $("#color").val();
 
-    //imgdest = "/~zboyle1/assets/petimg/" + speacies + "/" + color + ".png";
-    imgdest = "/~zboyle1/assets/petimg/petplaceholder.png";
+    imgdest = "/~zboyle1/assets/petimg/" + species + "/" + color + ".png";
 
     document.getElementById("newpet").src = imgdest;
 }
