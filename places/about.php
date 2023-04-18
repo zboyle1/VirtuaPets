@@ -4,11 +4,11 @@
 ?>
 <div class="cell medium-10 large-10">
     <div id="shop" class="grid-x grid-padding-x grid-margin-x">
-        <div class="cell">
+        <div class="cell" id="pagetitle">
             <h3>About Us</h3>
         </div>
 
-        <div class="cell">
+        <div class="cell" id="main">
             <div class="callout">
                 <h4 class="subheader">About the creator</h4>
                 <p style="margin-left: 1em;">
